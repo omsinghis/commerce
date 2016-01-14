@@ -1,0 +1,187 @@
+<div id="energytools" layout:decorator="main/fullPageNoBanner" layout:fragment="content">
+    <head>
+        <title>Energy Calculator</title>
+    </head>
+    
+   <div id="content">
+		<div class="wrapper">
+        	<div class="col-1">
+            	<div class="row-1 indent-bot3">					
+                	
+                    <p>
+                    	<strong class="color-3">Are you not sure, if solar is a good investment? Discover now how much money you can save per month with your own solar system. Calculate your savings</strong> 
+                    	</p>
+                    	<p>
+						How can you save money with solar energy? Let's assume you consume about 10 units (kWh) of electricity daily and have installed a 1 kW solar system on your roof. The cost of a 1 kW system in 2015 is approximately INR 1 lakh. The lifetime of a typical solar system is 25 years. So, in simple terms, the system would cost you INR 4,000 per year.
+						</p>
+						<p>
+						A 1 kW system would provide you roughly 5 units of electricity per day. These are 5 units of power you don't have to buy from the grid. At a grid power price of INR 3 per unit of electricity your bill would reduce by would save around INR 5,500 a year. This not only covers the cost of the solar system but also saves you another INR 1,500 a year!  
+                    	</p>                                       
+                  </div>
+        </div>    
+    </div>
+      
+  
+    <div class="seedstarterlist" th:unless="${#lists.isEmpty(allSeedStarters)}">    
+      <h2 th:text="#{title.list}">List of Seed Starters</h2>      
+      <table>
+        <thead>          
+          <tr>
+           <th th:text="#{seedstarter.load.summary}">Load Summary</th>
+           <th th:text="#{seedstarter.daysOfAutonomy}">Days of autonomy</th>           
+          </tr>
+        </thead>
+        <tbody th:each="sb : ${allSeedStarters}">
+          <tr >
+             <td>
+              <table>
+                <tbody>
+                <tr>
+		            <th th:text="#{seedstarter.loadrows.head.rownum}">Row</th>
+		          	<th th:text="#{seedstarter.loadrows.head.loadName}">name</th>
+                  	<th th:text="#{seedstarter.loadrows.head.quantity}">Quantity</th>
+		            <th th:text="#{seedstarter.load.summary}">Load Summary</th>
+          		</tr>
+                <tr th:each="row,rowStat : ${sb.loadRows}" th:object="${row}" th:if="${row.loadQuantity}!= null">
+                    <td th:text="${rowStat.count}">1</td>
+                    <td th:text="${row.loadName}">CFL</td>
+                    <td th:text="${row.loadQuantity}">12</td>
+                    <td th:text="${row.wattshraverage}">0.0</td>
+                </tr>
+                <tr>
+                  <th th:text="#{seedstarter.daily.average.load}">Average Daily Load (wt-hr/day)</th>                
+                  <th th:text="${sb.loadForUser}" colspan="3" align="right">0.0</th>
+                </tr>
+                </tbody>
+              </table>
+            </td>
+            <td th:text="${{sb.daysOfAutonomy}}">2</td>
+          </tr>
+          
+           <tr><th>Battery Sizing</th></tr>
+           <tr><th th:text="#{seedstarter.battery.unitvolts}">Unit Volt</th><td th:text="#{${'seedstarter.battery.' + sb.battery.dcVoltage}}">12 Volts</td></tr>
+           <tr><th th:text="#{seedstarter.battery.unitah}">Unit AH</th><td th:text="${sb.battery.unitAh}"> AH</td></tr>
+           <tr><th th:text="#{seedstarter.battery.dod}">DoD</th><td th:text="${sb.battery.dod}"></td></tr>
+           <tr><th th:text="#{seedstarter.battery.efficiency}">Efficiency</th><td th:text="${sb.battery.efficiency}"></td></tr>
+           <tr><th th:text="#{seedstarter.battery.amhrperday}">Amp-hr/Day</th><td th:text="${sb.battery.ahCapacity}"></td></tr>
+           <tr><th th:text="#{seedstarter.battery.parallel}">Battery in Parallel</th><td th:text="${sb.battery.inParallel}"></td></tr>
+           <tr><th th:text="#{seedstarter.battery.series}">Battery in series</th><td th:text="${sb.battery.inSeries}"></td></tr>
+           <tr><th th:text="#{seedstarter.battery.count}">Total Count</th><td th:text="${sb.battery.totalCount}"></td></tr>
+		   <tr><th th:text="#{seedstarter.battery.cost}">Approx. Cost</th><td th:text="${sb.battery.costOfBattery}"></td></tr>  
+		   
+		   <tr><th>PV Panel Sizing</th></tr>
+		   <tr><th th:text="#{seedstarter.pvpanel.peakSunAvailability}">Peak Sun Availability</th><td th:text="${sb.pvPanel.peakSunAvailability}">5 hrs</td></tr>
+           <tr><th th:text="#{seedstarter.pvpanel.ampspermodule}">Amps Per Module</th><td th:text="${sb.pvPanel.ampPerModule}">amps</td></tr>
+           <tr><th th:text="#{seedstarter.pvpanel.voltpermodule}">Volts Per Module</th><td th:text="${sb.pvPanel.voltagePerModule}"></td></tr>
+           <tr><th th:text="#{seedstarter.pvpanel.series}">PV Panel in Parallel</th><td th:text="${sb.pvPanel.pannelInParellel}"></td></tr>
+           <tr><th th:text="#{seedstarter.pvpanel.parallel}">PV Panel in Series</th><td th:text="${sb.pvPanel.pannelInSeries}"></td></tr>
+           <tr><th th:text="#{seedstarter.pvpanel.totalpanels}">Total Panels</th><td th:text="${sb.pvPanel.totalPannels}"></td></tr>
+           <tr><th th:text="#{seedstarter.pvpanel.cost}">Approx. Cost</th><td th:text="${sb.pvPanel.totalCost}"></td></tr>
+		           
+        </tbody>
+      </table>               
+    </div>
+    <div>    
+      <h2 th:text="#{title.new}">Add new Seed Starter</h2>
+      <form action="#" th:action="@{/tools/energyCalculator}" th:object="${seedStarter}" method="post">    
+        <fieldset>          
+          <legend th:text="#{seedstarter.data}">Seed Starter Data</legend>
+          <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+          </ul>          
+          <div>
+            <label for="datePlanted">
+              <span th:text="#{seedstarter.datePlanted}">Date planted</span>
+              (<span th:text="#{date.format}">YYYY/MM/DD</span>)
+            </label>
+            <input type="text" th:field="*{datePlanted}" th:errorclass="fieldError" />
+          </div>
+          <div>
+            <label for="type" th:text="#{seedstarter.volts}">Battery Volts</label>
+            <select th:field="*{battery.dcVoltage}">
+              <option th:each="inVolts : ${allBatteryTypes}" th:value="${inVolts}" th:text="#{${'seedstarter.battery.' + inVolts}}">12 Volts</option>
+            </select>           
+          </div>
+          <div>
+            <label th:text="#{seedstarter.features}">Features</label>
+            <ul>
+              <li>                            
+            	<label for="type" th:text="#{seedstarter.daysOfAutonomy}">Days of Autonomy</label>
+				<input type="text" th:field="*{daysOfAutonomy}" th:errorclass="fieldError" /> in days 
+              </li>
+              <li>                            
+            	<label for="type" th:text="#{seedstarter.battery.dod}">Battery Depth of discharge</label>
+				<input type="text" th:field="*{battery.dod}" th:errorclass="fieldError" />in % 
+              </li>
+              <li>                            
+            	<label for="type" th:text="#{seedstarter.battery.efficiency}">Battery Efficiency</label>
+				<input type="text" th:field="*{battery.efficiency}" th:errorclass="fieldError" />in % 
+              </li>              
+              <li>                            
+            	<label for="type" th:text="#{seedstarter.inverter.efficiency}">Inverter Efficiency</label>
+				<input type="text" th:field="*{inverterEfficiency}" th:errorclass="fieldError" /> in %
+              </li>
+                            <li th:remove="all">
+                <input id="removed1" type="checkbox" /> <label for="removed1">Turf</label>
+              </li>
+            </ul>
+          </div>
+		<div>
+            <label th:text="#{seedstarter.loadRows}">Individual Loads</label>
+            <table>
+              <thead>
+                <tr>
+                  <th th:text="#{seedstarter.loadrows.head.rownum}">Row</th>
+                  <th th:text="#{seedstarter.loadrows.head.loadName}">name</th>
+                  <th th:text="#{seedstarter.loadrows.head.quantity}">Quantity</th>
+                  <th th:text="#{seedstarter.loadrows.head.loadtype}">Type</th>
+                  <th th:text="#{seedstarter.loadrows.head.loadWatts}">Watts</th>
+                  <th th:text="#{seedstarter.loadrows.head.useHrPerDay}">hrs/day</th>
+                  <th th:text="#{seedstarter.loadrows.head.usePerWeek}">days/week</th>
+                  <th>
+                    <button type="submit" name="addLoadRow" th:text="#{seedstarter.row.add}">Add row</button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="loadRow,loadRowStat : *{loadRows}">
+                  <td th:text="${loadRowStat.count}">1</td>
+                  <td>
+                    <input type="text" th:field="*{loadRows[__${loadRowStat.index}__].loadName}" th:errorclass="fieldError" />
+                  </td>
+                  <td>
+                    <input type="text" th:field="*{loadRows[__${loadRowStat.index}__].loadQuantity}" th:errorclass="fieldError" />
+                  </td>                  
+                  <td>
+                    <select th:field="*{loadRows[__${loadRowStat.index}__].loadType}">
+                      <option th:each="var : ${allLoadTypes}" th:value="${var.id}" th:text="${var.name}">AC Device</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" th:field="*{loadRows[__${loadRowStat.index}__].loadWatts}" th:errorclass="fieldError" />
+                  </td> 
+                  <td>
+                    <input type="text" th:field="*{loadRows[__${loadRowStat.index}__].hrsPerDay}" th:errorclass="fieldError" />
+                  </td>
+                  <td>
+                    <input type="text" th:field="*{loadRows[__${loadRowStat.index}__].daysPerWeek}" th:errorclass="fieldError" />
+                  </td>                  
+                  <td>
+                    <button type="submit" name="removeLoadRow" th:value="${loadRowStat.index}" th:text="#{seedstarter.row.remove}">Remove row</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="submit">
+            <button type="submit" name="save" th:text="#{seedstarter.create}">Calculate Your Solar System Requirement</button>    
+          </div>
+		<div class="submit">
+            <button type="submit" name="reset" th:text="#{seedstarter.reset}">Clear Form and Start Again</button>    
+          </div>          
+          
+        </fieldset>
+      </form>
+    </div>
+</div>
+  </div>

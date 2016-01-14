@@ -1,0 +1,60 @@
+<header>
+   	<div>
+		<div class="row-1">
+        	<div class="wrapper">
+            <div class="top-left-box">            
+	            <div id="languages">
+		            <span id="selectedLocale" th:text="${session.blLocale.localeCode}" style="display: none" />		
+		            <a href="javascript:;" onclick="BLC.addUrlParam(document.location.search, 'blLocaleCode', 'en_IN')">
+		                <img id="en_IN" class="flag" blc:src="@{/img/flags/india.gif}" alt="India" title="India"/>
+		            </a>
+		            
+		             <img id="en_IN" class="flag" blc:src="@{/img/flags/makeinindia.jpg}" alt="Make In India" title="Make In India" />
+	        	</div>
+	        	
+	        	<div th:if="${customer.anonymous}"  th:remove="tag">
+                <a class="account" th:href="@{/login}">
+                    <span th:text="#{home.login}">Login</span>
+                </a>&nbsp;|&nbsp; 
+                <a class="account" th:href="@{/register}">
+                    <span th:text="#{home.register}">Register</span>
+                </a>&nbsp;|&nbsp; 
+                </div>
+                <div th:unless="${customer.anonymous}" th:remove="tag">
+                   <span><span th:text="#{home.welcome}">Welcome</span>, <a class="my-account" th:href="@{/account}" th:text="${customer.firstName}"></a></span>
+                   &nbsp;|&nbsp; 
+                   <a th:href="@{/logout}">
+                    <span th:text="#{home.logout}">Logout</span>
+                   </a>
+                   &nbsp;|&nbsp; 
+                </div>
+	        	
+            </div>
+            <div class="cart-box">
+	            <a id="cartLink" class="modalcart" th:href="@{/cart}">
+	                <img blc:src="@{/img/shopping_cart.png}" alt="Shopping Cart Icon" />
+	                &nbsp; 
+	                <span id="headerCartItemWordSingular_i18n" style="display: none;" th:text="#{home.item}" />
+	                <span id="headerCartItemWordPlural_i18n" style="display: none;" th:text="#{home.items}" />
+	                <span class="headerCartItemsCount" th:text="${cart.itemCount}" />
+	                <span class="headerCartItemsCountWord" th:text="${cart.itemCount == 1} ? #{home.item} :  #{home.items}" />
+	            </a>
+            </div>
+                        
+            <div class="box-top">
+            	<blc:form id="form-top" th:action="@{/search}" method="GET" enctype="multipart/form-data">
+                	<fieldset>
+                    	<label><input type="text" class="search" name="q" th:value="${originalQuery}" /></label>
+                        <a href="#" onclick="document.getElementById('form-top').submit()"><img src="/images/search.gif" alt="" /></a>
+                    </fieldset>
+                 </blc:form>
+            </div>
+            </div>
+        </div>
+        <div class="row-2">
+        	<!--==============================header=================================-->
+    		<nav th:substituteby="main/partials/nav" />   
+			<!--==============================content================================-->
+        </div>
+    </div>    
+</header>

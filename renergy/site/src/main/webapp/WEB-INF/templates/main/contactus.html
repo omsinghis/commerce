@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<!--==============================head=================================-->
+<head>
+    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Renergy Store - Renewable Energy Solution</title>
+    <th:block th:replace="/main/partials/head"></th:block>
+</head>
+<!--==============================head=================================-->
+<body id="page6">
+<div class="bg">
+<div id="main">
+<!--==============================header=================================-->
+    <header th:substituteby="main/partials/header" />   
+ 
+<!--==============================content================================-->
+    <div id="content">
+		<div class="wrapper">
+        	<div class="col-1">
+            	<div class="row-1 indent-bot3">					
+                	<h3>Our Locations</h3>
+                    <p>
+                    	<strong class="color-3">Gurgaon</strong>  sit ametonume onsectetur adipisicing elit, sedomo eiusmod tempor et dolore magna aliquat. Ut enaded minimt veniam quism nostrud xercitation ullamco laboris nisut aliquip lorem ipsum dolor amet consectetuer adipiscing elit praesend vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius micum sociis natoque penatibust et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. 
+                    </p>                                       
+                    <p>
+                    	<strong class="color-3">California</strong> fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec luctus a lorem. Maecenas tristique orci acmt sem uis ultricies pharetra magna donec accumsan malesuada orci donec sit amet eros lorem ipsum dolor sit amet consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget elementum veln cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Quisquem nulla. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. 
+                    </p>
+                    <strong class="color-3">Honolulu</strong> vivamus eget nibh etiam cursus leo vel metus nulla facilisienean nec eros vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elitum magna, hendrerit sit amet, tincidunt ac, viverra sed, nulla. Donec porta diam eu massa. Quisque diam lorem, interdum vitaem dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum donec in velit vel ipsum auctor pulvinar roin ullamcorper urna et felis. Vestibulum iaculis lacinia est. Proin dictum elementum velit. 
+                </div>
+                <div class="row-2">
+                	<h3>Contact Information</h3>
+                    <p>
+                    	Sit ametonume onsectetur adipisicing elit, sedomo eiusmod tempor et dolore magna aliqua. Ut enaded minim veniam quism nostrud xercitation ullamco laboris nisut aliquip. Lorem ipsum <a href="#">dolor sit amet consectetuer</a> adipiscing elit praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit.
+                    </p>	                        
+                    <div class="wrapper">
+                    	<div class="col-1">
+                        	<div class="wrapper">
+                            	<img class="img-indent" src="images/page6-img1.jpg" alt="" />
+                                <p>
+                                	Nostrud xercitation ullamco laborisem nisutaliquip orem ipsum dolor sitamet consectetuer <a href="#">adipiscing elit</a> praesenm vestibulum molestie lenean.
+                                </p>
+                                Nonummy hendrerit mauris phasellus porta fusce suscipit varius cum sociist natoque penatibust etum.
+                            </div>
+                        </div>
+                        <div class="col-2">
+                        	<dl class="info">
+                            	<dt>
+                                	Renergy Solution<br /> Gurgaon Faridabad Road, Gurgaon ,<br /> Gurgaon, 122 003.
+                                </dt>
+                                <dd><span>Freephone:</span> +1 800 559 6580</dd>
+                                <dd><span>Telephone:</span> +1 959 603 6035</dd>
+                                <dd><span>FAX:</span> +1 504 889 9898</dd>
+                                <dd>E-mail: <a href="mailto:om.singh@hotmail.com">omsingh@renergy.com</a></dd>
+                            </dl>
+                        </div>
+                    </div>               
+                </div>
+            </div>
+            <div class="col-2">            	
+                <h3 class="color-4">Contact Form</h3>
+                <blc:form id="contactUsForm" th:action="@{/contactus/success}" method="post">
+                	<fieldset>
+                    	Enter your Name:<br />
+                        <label><input type="text" name="name"/></label>
+                        Enter your E-mail:<br />
+                        <label><input type="text" name="emailAddress"/></label>
+                        Enter your Fax:<br />
+                        <label><input type="text" /></label>
+                        Enter your Message:<br />
+                        <div class="area">
+                        	<textarea cols="" rows="" name="comments"></textarea>
+                        </div>
+                        <div class="buttons">
+                            <a class="button" href="#" onclick="document.getElementById('contactUsForm').reset()"><span>reset</span></a>
+                            <a class="button" href="#" onclick="document.getElementById('contactUsForm').submit()"><span>submit</span></a>
+                        </div>
+                    </fieldset>
+                </blc:form>
+            </div>
+        </div>    
+    </div>
+<!--==============================footer=================================-->
+<footer th:substituteby="main/partials/footer" />
+<!--==============================footer=================================-->
+</div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+</body>
+</html>

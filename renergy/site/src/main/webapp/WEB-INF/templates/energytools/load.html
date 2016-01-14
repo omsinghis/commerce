@@ -1,0 +1,22 @@
+<load>
+<h2>Enter your energy usage</h2>
+<blc:form th:object="${individualLoadForm}" id="energyTool" th:action="@{/energytools/GenerateReport}" method="post">
+<table>
+    <tbody><tr>
+        <th>Individual Loads</th>
+        <th>Quantity</th>
+        <th>AC Volts</th>
+        <th>Amps</th>
+    </tr>
+    <tr th:each="individualLoad : ${individualLoads}">
+            <td align="center"><span th.text="${individualLoads.count}"/></td>
+            <td><input type="text" th:name="${'individualLoads[' + individualLoadStats.index + '].loadName'}" value="${individualLoad.loadName}"/></td>
+			<td><input type="text" th:name="${'individualLoads[' + individualLoadStats.index + '].loadQuantity'}" value="${individualLoad.loadQuantity}"/></td>
+        </tr>
+     
+</tbody></table>    
+<br/>
+<input type="submit" value="GenerateReport"/>
+</blc:form>
+</load>
+

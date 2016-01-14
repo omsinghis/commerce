@@ -1,0 +1,24 @@
+<contentRow1>
+<div class="row-4">
+<div class="wrapper">
+<blc:content contentType="Homepage Middle Promo Snippet" />
+	<div>
+	        <div th:each="contentItem : ${contentList}">
+	        <div th:class="'block1 s' + @{${contentItemStat.count}}">
+	            <div class="boxTitle">
+	                <h3 th:text="@{${contentItem['contentName']}}"/>
+	            </div>
+	            <div class="clear">
+	                <div class="boxIndent">
+	                    <div>
+	                    <p th:utext="${contentItem['htmlContent']}"></p>
+	                    <a th:href="@{${contentItem['targetUrl']}}"><img th:src="'/images/b' +@{${contentItemStat.count}} + '.jpg'" alt=""/></a>
+	                    </div>                
+	                </div>
+	            </div>
+	            </div>
+	        </div> 
+	    </div>
+	</div>
+</div>
+</contentRow1>

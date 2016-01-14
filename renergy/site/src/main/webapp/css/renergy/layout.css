@@ -1,0 +1,63 @@
+/*======= index.html =======*/
+#page1 #header {background:url(/images/header.jpg) right bottom no-repeat;}
+
+#page1 #content .col-1 {width:690px; margin-right:46px;}
+#page1 #content .col-2 {width:244px;}
+
+#page1 #content .col-1 .col-1 {width:198px; margin-right:48px;}
+#page1 #content .col-1 .col-2 {width:198px; margin-right:48px;}
+#page1 #content .col-1 .col-3 {width:198px;} 
+
+/*======= index-1.html =======*/
+#page2 #header {background:url(/images/header-1.jpg) right bottom no-repeat;}
+
+#page2 #content .col-1 {width:690px; margin-right:46px;}
+#page2 #content .col-2 {width:244px;}
+
+#page2 #content .col-1 .col-1 {width:198px; margin-right:48px;}
+#page2 #content .col-1 .col-2 {width:442px;} 
+
+/*======= index-2.html =======*/
+#page3 #header {background:url(/images/header-2.jpg) right bottom no-repeat;}
+
+#page3 #content .col-1 {width:690px; margin-right:46px;}
+#page3 #content .col-2 {width:244px;}
+
+#page3 #content .col-1 .col-1 {width:198px; margin-right:48px;}
+#page3 #content .col-1 .col-2 {width:198px; margin-right:48px;}
+#page3 #content .col-1 .col-3 {width:198px;} 
+
+/*======= index-3.html =======*/
+#page4 #header {background:url(/images/header-3.jpg) right bottom no-repeat;}
+
+#page4 #content .col-1 {width:690px; margin-right:44px;}
+#page4 #content .col-2 {width:244px;}
+
+#page4 #content .col-1 .col-1 {width:198px; margin-right:48px;}
+#page4 #content .col-1 .col-2 {width:442px;} 
+
+/*======= index-4.html =======*/
+#page5 #header {background:url(/images/header-4.jpg) right bottom no-repeat;}
+
+#page5 #content .col-1 {width:690px; margin-right:46px;}
+#page5 #content .col-2 {width:244px;}
+
+#page5 #content .col-1 .col-1 {width:198px; margin-right:48px;}
+#page5 #content .col-1 .col-2 {width:442px;} 
+
+/*======= index-5.html =======*/
+#page6 #header {background:url(/images/header-1.jpg) right bottom no-repeat;}
+
+#page6 #content .col-1 {width:690px; margin-right:46px;}
+#page6 #content .col-2 {width:244px;}
+
+#page6 #content .col-1 .col-1 {width:442px; margin-right:35px;}
+#page6 #content .col-1 .col-2 {width:210px;} 
+
+/*======= index-5.html =======*/
+#page7 #header {background:url(/images/header-6.jpg) right bottom no-repeat;}
+
+
+
+
+
