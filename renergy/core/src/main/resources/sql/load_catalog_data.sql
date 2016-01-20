@@ -558,24 +558,24 @@ INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT) VALUES (1802,'/cmsstatic/
 INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT) VALUES (1901,'/cmsstatic/images/store/wind/wind_top_tower.jpg','wind_top_tower','wind_top_tower');
 INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT) VALUES (1902,'/cmsstatic/images/store/wind/wind_35_kva.jpg','wind_35_kva','wind_35_kva');
 
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (10001,'/cmsstatic/img/merch/habanero_mens_black.jpg','Hawt Like a Habanero Men''s Black','primary','Black');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (10002,'/cmsstatic/img/merch/habanero_mens_red.jpg','Hawt Like a Habanero Men''s Red','primary','Red');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (10003,'/cmsstatic/img/merch/habanero_mens_silver.jpg','Hawt Like a Habanero Men''s Silver','primary','Silver');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (20001,'/cmsstatic/img/merch/habanero_womens_black.jpg','Hawt Like a Habanero Women''s Black','primary','Black');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (20002,'/cmsstatic/img/merch/habanero_womens_red.jpg','Hawt Like a Habanero Women''s Red','primary','Red');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (20003,'/cmsstatic/img/merch/habanero_womens_silver.jpg','Hawt Like a Habanero Women''s Silver','primary','Silver');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (30001,'/cmsstatic/img/merch/heat_clinic_handdrawn_mens_black.jpg','Heat Clinic Hand-Drawn Men''s Black','primary', 'Black');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (30002,'/cmsstatic/img/merch/heat_clinic_handdrawn_mens_red.jpg','Heat Clinic Hand-Drawn Men''s Red','primary', 'Red');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (30003,'/cmsstatic/img/merch/heat_clinic_handdrawn_mens_silver.jpg','Heat Clinic Hand-Drawn Men''s Silver','primary', 'Silver');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (40001,'/cmsstatic/img/merch/heat_clinic_handdrawn_womens_black.jpg','Heat Clinic Hand-Drawn Women''s Black','primary', 'Black');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (40002,'/cmsstatic/img/merch/heat_clinic_handdrawn_womens_red.jpg','Heat Clinic Hand-Drawn Women''s Red','primary', 'Red');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (40003,'/cmsstatic/img/merch/heat_clinic_handdrawn_womens_silver.jpg','Heat Clinic Hand-Drawn Women''s Silver','primary', 'Silver');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (50001,'/cmsstatic/img/merch/heat_clinic_mascot_mens_black.jpg','Heat Clinic Mascot Men''s Black','primary', 'Black');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (50002,'/cmsstatic/img/merch/heat_clinic_mascot_mens_red.jpg','Heat Clinic Mascot Men''s Red','primary', 'Red');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (50003,'/cmsstatic/img/merch/heat_clinic_mascot_mens_silver.jpg','Heat Clinic Mascot Men''s Silver','primary', 'Silver');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (60001,'/cmsstatic/img/merch/heat_clinic_mascot_womens_black.jpg','Heat Clinic Mascot Women''s Black','primary', 'Black');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (60002,'/cmsstatic/img/merch/heat_clinic_mascot_womens_red.jpg','Heat Clinic Mascot Women''s Red','primary', 'Red');
-INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (60003,'/cmsstatic/img/merch/heat_clinic_mascot_womens_silver.jpg','Heat Clinic Mascot Women''s Silver','primary', 'Silver');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (10001,'/cmsstatic/images/store/tools/plug-in-power-monitor.jpg','Plug in Power Monitor','primary','Black');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (10002,'/cmsstatic/images/store/tools/envir-wireless-home-energy-electricity-monitor.jpg','Wireless Home Energy Monitor','primary','Red');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (10003,'/cmsstatic/images/store/solar/solar_fan.jpg','Solar Driven Fan','primary','Silver');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (20001,'/cmsstatic/images/store/solar/bag_solar_charger.jpg','Bag with Solar Charger','primary','Black');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (20002,'/cmsstatic/images/store/solar/solar-powered-mobile-charger-with-torch.jpg','Solar Powered Mobile Charger with Torch','primary','Red');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (20003,'/cmsstatic/images/store/solar/water_heater.jpg','Roof top water heater','primary','Silver');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (30001,'/cmsstatic/images/store/hydro/Micro-Hydro-Power-Dual-Nozzle.jpg','Micro Hydro Power Generators','primary', 'Black');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (30002,'/cmsstatic/images/store/biomass/greenway_stove.jpg','Greenway Stoves','primary', 'Red');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (30003,'/cmsstatic/images/store/biomass/CampStove_1.jpg','Camp Stoves','primary', 'Silver');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (40001,'/cmsstatic/images/store/kinetic/spin-bike-generator-power-system_emergency-dynamo.jpg','Spin Bike Power Generator','primary', 'Black');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (40002,'/cmsstatic/images/store/biomass/HomeBiogas3-1020x610.jpg','Home Bio gas','primary', 'Red');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (40003,'/cmsstatic/images/store/biomass/biostoves.jpg','Bio Stoves','primary', 'Silver');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (50001,'/cmsstatic/images/store/biomass/biogas-stoves.jpg','Portable Bio Gas Stoves','primary', 'Black');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (50002,'/cmsstatic/images/store/solar/solar_powered_cap_lights.jpg','Solar Powered Cap Lights','primary', 'Red');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (50003,'/cmsstatic/images/store/solar/solarradio.jpg','Solar Powered radio','primary', 'Silver');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (60001,'/cmsstatic/images/store/kinetic/StreetMachine-solar-fairing-7936.jpg','Solar Kinetic cycle combo','primary', 'Black');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (60002,'/cmsstatic/images/store/wind/Residential_Wind_Turbine_Netherlands.jpg','Wind turnbines for residence','primary', 'Red');
+INSERT INTO BLC_MEDIA (MEDIA_ID, URL, TITLE, ALT_TEXT, TAGS) VALUES (60003,'/cmsstatic/images/store/wind/The-Archimedes-Liam.jpg','Liam Wind Power Generator','primary', 'Silver');
 
 
 ------------------------------------------------------------------------------------------------------------------
@@ -690,25 +690,24 @@ INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL
 INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (1901,'image/jpg','FILESYSTEM','/images/store/wind/wind_top_tower.jpg','wind_top_tower');
 INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (1902,'image/jpg','FILESYSTEM','/images/store/wind/wind_35_kva.jpg','wind_35_kva');
 
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (10001,'image/jpg','FILESYSTEM','/img/merch/habanero_mens_black.jpg','Hawt Like a Habanero Men''s Black');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (10002,'image/jpg','FILESYSTEM','/img/merch/habanero_mens_red.jpg','Hawt Like a Habanero Men''s Red');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (10003,'image/jpg','FILESYSTEM','/img/merch/habanero_mens_silver.jpg','Hawt Like a Habanero Men''s Silver');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (20001,'image/jpg','FILESYSTEM','/img/merch/habanero_womens_black.jpg','Hawt Like a Habanero Women''s Black');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (20002,'image/jpg','FILESYSTEM','/img/merch/habanero_womens_red.jpg','Hawt Like a Habanero Women''s Red');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (20003,'image/jpg','FILESYSTEM','/img/merch/habanero_womens_silver.jpg','Hawt Like a Habanero Women''s Silver');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (30001,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_handdrawn_mens_black.jpg','Heat Clinic Hand-Drawn Men''s Black');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (30002,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_handdrawn_mens_red.jpg','Heat Clinic Hand-Drawn Men''s Red');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (30003,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_handdrawn_mens_silver.jpg','Heat Clinic Hand-Drawn Men''s Silver');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (40001,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_handdrawn_womens_black.jpg','Heat Clinic Hand-Drawn Women''s Black');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (40002,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_handdrawn_womens_red.jpg','Heat Clinic Hand-Drawn Women''s Red');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (40003,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_handdrawn_womens_silver.jpg','Heat Clinic Hand-Drawn Women''s Silver');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (50001,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_mascot_mens_black.jpg','Heat Clinic Mascot Men''s Black');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (50002,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_mascot_mens_red.jpg','Heat Clinic Mascot Men''s Red');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (50003,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_mascot_mens_silver.jpg','Heat Clinic Mascot Men''s Silver');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (60001,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_mascot_womens_black.jpg','Heat Clinic Mascot Women''s Black');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (60002,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_mascot_womens_red.jpg','Heat Clinic Mascot Women''s Red');
-INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (60003,'image/jpg','FILESYSTEM','/img/merch/heat_clinic_mascot_womens_silver.jpg','Heat Clinic Mascot Women''s Silver');
-
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (10001,'image/jpg','FILESYSTEM','/images/store/tools/plug-in-power-monitor.jpg','Plug in Power Monitor');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (10002,'image/jpg','FILESYSTEM','/images/store/tools/envir-wireless-home-energy-electricity-monitor.jpg','Wireless Home Energy Monitor');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (10003,'image/jpg','FILESYSTEM','/images/store/solar/solar_fan.jpg','Solar Driven Fan');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (20001,'image/jpg','FILESYSTEM','/images/store/solar/bag_solar_charger.jpg','Bag with Solar Charger');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (20002,'image/jpg','FILESYSTEM','/images/store/solar/solar-powered-mobile-charger-with-torch.jpg','Solar Powered Mobile Charger with Torch');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (20003,'image/jpg','FILESYSTEM','/images/store/solar/water_heater.jpg','Roof top water heater');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (30001,'image/jpg','FILESYSTEM','/images/store/hydro/Micro-Hydro-Power-Dual-Nozzle.jpg','Micro Hydro Power Generators');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (30002,'image/jpg','FILESYSTEM','/images/store/biomass/greenway_stove.jpg','Greenway Stoves');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (30003,'image/jpg','FILESYSTEM','/images/store/biomass/CampStove_1.jpg','Camp Stoves');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (40001,'image/jpg','FILESYSTEM','/images/store/kinetic/spin-bike-generator-power-system_emergency-dynamo.jpg','Spin Bike Power Generator');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (40002,'image/jpg','FILESYSTEM','/images/store/biomass/HomeBiogas3-1020x610.jpg','Home Bio gas');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (40003,'image/jpg','FILESYSTEM','/images/store/biomass/biostoves.jpg','Bio Stoves');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (50001,'image/jpg','FILESYSTEM','/images/store/biomass/biogas-stoves.jpg','Portable Bio Gas Stoves');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (50002,'image/jpg','FILESYSTEM','/images/store/solar/solar_powered_cap_lights.jpg','Solar Powered Cap Lights');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (50003,'image/jpg','FILESYSTEM','/images/store/solar/solarradio.jpg','Solar Powered radio');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (60001,'image/jpg','FILESYSTEM','/images/store/kinetic/StreetMachine-solar-fairing-7936.jpg','Solar Kinetic cycle combo');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (60002,'image/jpg','FILESYSTEM','/images/store/wind/Residential_Wind_Turbine_Netherlands.jpg','Wind turnbines for residence');
+INSERT INTO BLC_STATIC_ASSET (STATIC_ASSET_ID, MIME_TYPE, STORAGE_TYPE, FULL_URL, NAME) VALUES (60003,'image/jpg','FILESYSTEM','/images/store/wind/The-Archimedes-Liam.jpg','Liam Wind Power Generator');
 
 
 

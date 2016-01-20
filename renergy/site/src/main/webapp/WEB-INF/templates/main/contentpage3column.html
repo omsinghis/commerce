@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<!--==============================head=================================-->
+<head>
+    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Renergy Store - Renewable Energy Solution</title>
+    <th:block th:replace="/main/partials/head"></th:block>
+</head>
+
+<body id="page3" th:class="${'locale-' + session.blLocale.localeCode}">
+<div class="bg">
+<div id="main">
+
+    <header th:substituteby="main/partials/headerWithNoBanner" /> 
+         
+	<div layout:fragment="content" />
+    
+    <th:block layout:fragment="post-content" />
+    
+    <footer th:substituteby="main/partials/footer" />
+</div>
+</div>    
+<script type="text/javascript"> Cufon.now(); </script>
+</body>
+</html>
