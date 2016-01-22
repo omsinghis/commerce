@@ -1,22 +1,10 @@
-<!DOCTYPE HTML>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
+<th:block layout:decorator="main/contentpage3column" layout:fragment="content">
 <!--==============================head=================================-->
 <head>
     <title th:text="${category.name}"></title>
     <th:block th:replace="/main/partials/head"></th:block>
 </head>
-<!--==============================head=================================-->
-<body id="page3">
-<div class="bg">
-<div id="main">
-<!--==============================header=================================-->
-    <header th:substituteby="main/partials/header" />   
- 
-<!--==============================content================================-->
+    <div layout:fragment="content">
     <div id="content">
 		<div class="wrapper">
         	<div class="col-1">
@@ -128,11 +116,5 @@
             </div>
         </div>    
     </div>
-<!--==============================footer=================================-->
-<footer th:substituteby="main/partials/footer" />
-<!--==============================footer=================================-->
-</div>
-</div>
-<script type="text/javascript"> Cufon.now(); </script>
-</body>
-</html>
+    </div>
+</th:block>
