@@ -1,0 +1,90 @@
+<header>
+ 
+    <div id="main">
+   <div class="row-1">
+        	<div class="wrapper">
+        	
+            <div class="top-left-box">            
+	            <div id="languages">
+		            <span id="selectedLocale" th:text="${session.blLocale.localeCode}" style="display: none" />		
+		            <a href="javascript:;" onclick="BLC.addUrlParam(document.location.search, 'blLocaleCode', 'en_IN')">
+		                <img id="en_IN" class="flag" blc:src="@{/img/flags/india.gif}" alt="India" title="India"/>
+		            </a>
+		            
+		             <img id="en_IN" class="flag" blc:src="@{/img/flags/makeinindia.jpg}" alt="Make In India" title="Make In India" />
+	        	</div>
+	        	
+	        	<div th:if="${customer.anonymous}"  th:remove="tag">
+                <a class="account" th:href="@{/login}">
+                    <span th:text="#{home.login}">Login</span>
+                </a>&nbsp;|&nbsp; 
+                <a class="account" th:href="@{/register}">
+                    <span th:text="#{home.register}">Register</span>
+                </a>&nbsp;|&nbsp; 
+                </div>
+                <div th:unless="${customer.anonymous}" th:remove="tag">
+                   <span><span th:text="#{home.welcome}">Welcome</span>, <a class="my-account" th:href="@{/account}" th:text="${customer.firstName}"></a></span>
+                   &nbsp;|&nbsp; 
+                   <a th:href="@{/logout}">
+                    <span th:text="#{home.logout}">Logout</span>
+                   </a>
+                   &nbsp;|&nbsp; 
+                </div>
+	        	
+            </div>
+            <div class="cart-box">
+	            <a id="cartLink" class="modalcart" th:href="@{/cart}">
+	                <img blc:src="@{/img/shopping_cart.png}" alt="Shopping Cart Icon" />
+	                &nbsp; 
+	                <span id="headerCartItemWordSingular_i18n" style="display: none;" th:text="#{home.item}" />
+	                <span id="headerCartItemWordPlural_i18n" style="display: none;" th:text="#{home.items}" />
+	                <span class="headerCartItemsCount" th:text="${cart.itemCount}" />
+	                <span class="headerCartItemsCountWord" th:text="${cart.itemCount == 1} ? #{home.item} :  #{home.items}" />
+	            </a>
+            </div>
+                        
+            <div class="box-top">
+            	<blc:form id="form-top" th:action="@{/search}" method="GET" enctype="multipart/form-data">
+                	<fieldset>
+                    	<label><input type="text" class="search" name="q" th:value="${originalQuery}" /></label>
+                        <a href="#" onclick="document.getElementById('form-top').submit()"><img src="/images/search.gif" alt="" /></a>
+                    </fieldset>
+                 </blc:form>
+            </div>
+            </div>
+        </div> 
+        <div id="header_content_checkout">
+			
+            <div id="checkout_info">
+
+                <table class="checkout_info_left" id="checkout_total_table" cellspacing="10">
+                    <tr>
+                        <th>Subtotal</th>
+                        <th>Promotions</th>
+                        <th>Taxes</th>
+                        <th>Shipping</th>
+                    </tr>
+                    <tr>
+                        <td blc:price="${cart.subTotal}"></td>
+                        <td class="discount" th:if="${cart.orderAdjustmentsValue.zero}">---</td>
+                        <td class="discount" th:unless="*{cart.orderAdjustmentsValue.zero}" blc:price="${cart.orderAdjustmentsValue}"></td>
+                        <td blc:price="${cart.totalTax}"></td>
+                        <td blc:price="${cart.totalShipping}"></td>
+                    </tr>
+                </table>
+                <div class="checkout_info_left">
+
+                </div>
+
+                <div class="checkout_info_right">
+                    <h3>Current Total</h3>
+                    <div id="checkout_total" blc:price="${cart.total}"></div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="logo"><a href="/"><img class="png" src="/images/logo_small.png" alt="" /></a></div>
+           <!--  <div id="logo"><h1><a th:href="@{/}">The Heat Clinic Home</a></h1></div> -->
+        </div>
+    </div>
+</header>
