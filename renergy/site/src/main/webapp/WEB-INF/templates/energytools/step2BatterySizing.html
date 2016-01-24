@@ -1,0 +1,169 @@
+<div id="energytools" layout:decorator="main/fullPageNoBanner" layout:fragment="content">
+    <head>
+        <title>Step2 Battery Sizing</title>
+        <style type="text/css">
+	        div.worksheet {    
+	        background-color: #DDD;
+	        border: 1px solid #808080;
+	        padding: 5px;
+			}
+		</style>
+    </head>
+    
+   <div id="content">
+		<div class="wrapper">
+        		<div class="col-1">
+            	<h3>Part A - Find out your battery bank capacity</h3>
+				<p>
+				You'll need to know the total capacity for all your batteries put
+				together that'll meet your power needs. This is like finding out
+				how many gallons of water you need to store for your various water
+				uses. Follow the steps in the following battery bank capacity calculator.
+				</p>
+				
+
+				<div class="worksheet">
+				  <form name="metric_calc_form" id="batterySizeingForm" th:object="${battery}" th:action="@{/tools/batteryCalculator}" method="post">
+				  Fill in the following and click on the Calculate button...
+				  <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+           			 <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+         		 </ul>
+				  <br></br>
+				  <table>  <tr><td valign="top" align="right" style="width: 180px">
+				    Watt hours needed per day:
+				  </td><td valign="top" style="width: 150px">
+				   <input type="text" th:field="*{wattHrsNeededPerDay}" th:errorclass="fieldError" size="5"/> (Wh/day)
+				  </td><td valign="top">
+				    Insert your watt hours needed per day. This is the value you
+				    got from Step 1, Part C in 
+				    <a href="calculate_your_power_needs.htm" target="_blank">working out your power needs</a>.
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    Battery bank voltage:
+				  </td><td valign="top">
+				   	<select th:field="*{dcVoltage}">
+             			 <option th:each="inVolts : ${allBatteryTypes}" th:value="${inVolts}" th:text="#{${'seedstarter.battery.' + inVolts}}">Volts_24</option> 
+            		</select>  Volts
+				   </td><td valign="top">
+				    Enter the voltage for your battery bank. This is usually 12, 24 or 48,
+				    the larger the system the higher the value. If you don't know then enter
+				    24 for now. You may have to return to this step later.
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    <p id="eg_amp_hrs_per_day_lval"></p>
+				  </td><td valign="top">
+				    <p id="eg_amp_hrs_per_day_res"></p>
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    Days without sun:
+				  </td><td valign="top">
+				    <input type="text" th:field="*{daysOfAutonomy}" th:errorclass="fieldError" size="5"/> (days)
+				  </td><td valign="top">
+				    Enter the number of days you expect to be cloudy in a row i.e. the number
+				    of days in a row your solar panels won't be producing power. Your 
+				    batteries will need to store enough power to supply your appliances
+				    during those days.
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    <p id="eg_sun_amp_hrs_lval"></p>
+				  </td><td valign="top">
+				    <p id="eg_sun_amp_hrs_res"></p>
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    Depth of discharge:
+				  </td><td valign="top">
+				    <input type="text" th:field="*{dod}" th:errorclass="fieldError" size="5"/> (%)
+				  </td><td valign="top">
+				    Normally you don't want to discharge more than 50% of your battery's
+				    capacity before charging them back up again. The more you discharge 
+				    your batteries before recharging them, the shorter their useful lifetime.
+				    This means if you don't discharge more than 20% of their capacity then 
+				    they'll last even longer than if you normally discharge 50% of their
+				    capacity. But only discharging them by 20% means the 20% used will 
+				    have to meet all your power needs. This means you'll need a larger 
+				    battery bank since you'll only ever use 20%. So the tradeoff is 
+				    upfront cost versus battery lifetime. That's why the rule-of-thumb 
+				    is 50%.
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    <p id="eg_dod_amp_hrs_lval"></p>
+				  </td><td valign="top">
+				    <p id="eg_dod_amp_hrs_res"></p>
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    Temperature multiplier:
+				  </td><td valign="top">
+				    <input type="text" th:field="*{tempMultiplier}" th:errorclass="fieldError" size="5"/>
+				  </td><td valign="top">
+				    Colder temperatures have a negative effect on the capacity of your
+				    battery bank. If your battery bank is always indoors in a heated area
+				    then you don't have a problem. But if they're stored in an unheated
+				    area during the winter then you'll need to account for this.<br></br>
+				    <br></br>
+				    Select a multiplier from the following table that corresponds to the
+				    coldest average temperature you expect in the area where you'll be 
+				    keeping your batteries. It must be around this average for at least 
+				    a few days in a row.<br></br>
+				    <br></br>
+				    <table id="datatable"><tr>
+				      <th class="right">Degrees</th>
+				      <th class="right">Degrees</th>
+				      <th class="right">&nbsp;</th>
+				    </tr><tr>
+				      <th class="right">Fahrenheit</th>
+				      <th class="right">Celcius</th>
+				      <th class="right">Multiplier</th>
+				    </tr><tr>
+				      <td class="right">80&#176;F</td>
+				      <td class="right">26.0&#176;C</td>
+				      <td class="right">1.00</td>
+				    </tr><tr class="alt">
+				      <td class="right">70&#176;F</td>
+				      <td class="right">21.2&#176;C</td>
+				      <td class="right">1.04</td>
+				    </tr><tr>
+				      <td class="right">60&#176;F</td>
+				      <td class="right">15.6&#176;C</td>
+				      <td class="right">1.11</td>
+				    </tr><tr class="alt">
+				      <td class="right">50&#176;F</td>
+				      <td class="right">10.0&#176;C</td>
+				      <td class="right">1.19</td>
+				    </tr><tr>
+				      <td class="right">40&#176;F</td>
+				      <td class="right">4.4&#176;C</td>
+				      <td class="right">1.30</td>
+				    </tr><tr class="alt">
+				      <td class="right">30&#176;F</td>
+				      <td class="right">-1.1&#176;C</td>
+				      <td class="right">1.40</td>
+				    </tr><tr>
+				      <td class="right">20&#176;F</td>
+				      <td class="right">-6.7&#176;C</td>
+				      <td class="right">1.59</td>
+				    </tr></table>
+				
+				  </td>
+				  </tr>
+				  <tr>	<td valign="top" align="right">
+				    	<p id="eg_mult_amp_hrs_lval"></p>
+				  		</td>
+				  		<td valign="top">
+				   		 <p id="eg_mult_amp_hrs_res"></p>
+				 		</td>
+				 </tr>  
+				 </table>
+
+				  <button type="submit" name="calculate" th:text="#{sizing.battery.calculate}">Calculate</button>  
+				  <br></br>
+				  <br></br>
+				  Result:<br></br>
+				  The capacity of the needed battery bank is 
+				  <input type="text" th:field="*{ahCapacity}" th:errorclass="fieldError" value="0" size="6" readonly="true" class="worksheet_result"/>
+				  AHr (amp hours). Use this for the next part.
+				  </form>
+				</div>    <!--end of worksheet-->
+    	</div>
+    	</div>  
+  </div>
+  </div>
