@@ -16,6 +16,12 @@ public class Battery {
 	private double wattHrsNeededPerDay=0.0;
 	private int daysOfAutonomy=4;
 	private double tempMultiplier=1.04;
+	private String amphoursLabel1 ="";
+	private String amphoursLabel2 ="";
+	private String amphoursLabel3 ="";
+	private String amphoursLabel4 ="";
+	
+			
 	
 
 	
@@ -115,19 +121,38 @@ public class Battery {
 	public void setTempMultiplier(double tempMultiplier) {
 		this.tempMultiplier = tempMultiplier;
 	}
+	
+	
+	public String getAmphoursLabel1() {
+		return amphoursLabel1;
+	}
+	public void setAmphoursLabel1(String amphoursLabel1) {
+		this.amphoursLabel1 = amphoursLabel1;
+	}
+	public String getAmphoursLabel2() {
+		return amphoursLabel2;
+	}
+	public void setAmphoursLabel2(String amphoursLabel2) {
+		this.amphoursLabel2 = amphoursLabel2;
+	}
+	public String getAmphoursLabel3() {
+		return amphoursLabel3;
+	}
+	public void setAmphoursLabel3(String amphoursLabel3) {
+		this.amphoursLabel3 = amphoursLabel3;
+	}
+	public String getAmphoursLabel4() {
+		return amphoursLabel4;
+	}
+	public void setAmphoursLabel4(String amphoursLabel4) {
+		this.amphoursLabel4 = amphoursLabel4;
+	}
 	@Override
 	public String toString() {
-		return "Battery [dod=" + dod + ", dcVoltage=" + dcVoltage + ", manufacturerVoltage=" + manufacturerVoltage
-				+ ", unitAh=" + unitAh + ", batteryBankNeeded=" + batteryBankNeeded + ", efficiency=" + efficiency
-				+ ", ahCapacity=" + ahCapacity + ", inParallel=" + inParallel + ", inSeries=" + inSeries
-				+ ", totalCount=" + totalCount + ", costOfBattery=" + costOfBattery + ", wattHrsNeededPerDay="
-				+ wattHrsNeededPerDay + ", daysOfAutonomy=" + daysOfAutonomy + ", tempMultiplier=" + tempMultiplier
-				+ "]";
+		return "Battery [totalCount=" + totalCount + ", wattHrsNeededPerDay=" + wattHrsNeededPerDay
+				+ ", tempMultiplier=" + tempMultiplier + ", amphoursLabel1=" + amphoursLabel1 + ", amphoursLabel2="
+				+ amphoursLabel2 + ", amphoursLabel3=" + amphoursLabel3 + ", amphoursLabel4=" + amphoursLabel4 + "]";
 	}
 
-	
-	
 
-	
-	
 }

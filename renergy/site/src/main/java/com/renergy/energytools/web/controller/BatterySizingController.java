@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.renergy.energytools.business.entities.Battery;
 import com.renergy.energytools.business.entities.Volt;
@@ -28,21 +29,30 @@ public class BatterySizingController {
            return "energytools/step2BatterySizing";
     }
 
-    @RequestMapping(value="/tools/batteryCalculator", params={"calculate"})
-    public String calculateSizing(final Battery battery, final BindingResult bindingResult, final ModelMap model) {
+    @RequestMapping(value="/tools/batteryCalculator", params={"calculate"},method = RequestMethod.POST)
+    public String calculateSizing(Battery battery,BindingResult bindingResult, ModelMap model) {
         if (bindingResult.hasErrors()) {
             return "energytools/step2BatterySizing";
         }
-        log.debug("the calculate method is now called  : " + battery.toString());
+        
         double amphoursperday = battery.getWattHrsNeededPerDay() / battery.getManufacturerVoltage().showVolts();
-        amphoursperday =Double.parseDouble(new DecimalFormat("##.####").format(amphoursperday));
-        String amphoursperdayLabel = "" + battery.getWattHrsNeededPerDay() + "/" + battery.getManufacturerVoltage().showVolts() + "=" + amphoursperday;
-        log.debug("the am hours per day  : " +amphoursperdayLabel);
+        amphoursperday =Double.parseDouble(new DecimalFormat("##.##").format(amphoursperday));
+        String amphoursperdayLabel1 = "" + battery.getWattHrsNeededPerDay() + "/" + battery.getManufacturerVoltage().showVolts() + " = " + amphoursperday + " amp hours/day";
+        double dayswithoutsun = amphoursperday*battery.getDaysOfAutonomy();
+        String amphoursperdayLabel2 = amphoursperday + " X " + battery.getDaysOfAutonomy() + " = " + dayswithoutsun + " amp hours";
+        double amshrwithdod = dayswithoutsun * (1/(battery.getDod()/100));
+        String amphoursperdayLabel3 = dayswithoutsun + " X (1/(" + battery.getDod() + ")/100)" +" = " + amshrwithdod + " amp hours " ;
+        double actualAhCapacity = amshrwithdod * battery.getTempMultiplier();
+        String amphoursperdayLabel4 = amshrwithdod + " X " + battery.getTempMultiplier() + " = " + actualAhCapacity + " amp hours " ;
+         
+        battery.setAmphoursLabel1(amphoursperdayLabel1);
+        battery.setAmphoursLabel2(amphoursperdayLabel2);
+        battery.setAmphoursLabel3(amphoursperdayLabel3);
+        battery.setAmphoursLabel4(amphoursperdayLabel4); 
+        battery.setAhCapacity(actualAhCapacity);
         
-        
-        
-        
-        return "redirect:/tools/batteryCalculator";
+        log.debug("the calculate method is now called  : " + battery.toString());
+        return "energytools/step2BatterySizing";
     }
     
     
