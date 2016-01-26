@@ -261,4 +261,10 @@
         <property name="locations" ref="blCssLocations"/>
         <property name="handlers" ref="blCssHandlers" />
     </bean>
+    
+    <bean id="org.broadleafcommerce.core.web.api.wrapper.ProductWrapper" class="com.renergy.api.wrapper.ExtendProductWrapper" 
+    scope="prototype"/> 
+    
+   
+    
 </beans>

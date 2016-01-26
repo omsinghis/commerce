@@ -4,7 +4,7 @@
 #page1 #content .col-1 {width:690px; margin-right:46px;}
 #page1 #content .col-2 {width:244px;}
 
-#page1 #content .col-1 .col-1 {width:198px; margin-right:48px;}
+#page1 #content .col-1 .col-1 {width:198px; margin-right:37px;margin-left:10px;}
 #page1 #content .col-1 .col-2 {width:198px; margin-right:48px;}
 #page1 #content .col-1 .col-3 {width:198px;} 
 
@@ -21,8 +21,8 @@
 /*======= index-2.html =======*/
 #page3 #header {background:url(/images/header-2.jpg) right bottom no-repeat;}
 
-#page3 #content .col-1 {width:690px; margin-right:46px;}
-#page3 #content .col-2 {width:244px;}
+#page3 #content .col-1 {width:720px; margin-right:46px;}
+#page3 #content .col-2 {width:210px;}
 
 #page3 #content .col-1 .col-1 {width:198px; margin-right:48px;}
 #page3 #content .col-1 .col-2 {width:198px; margin-right:48px;}
