@@ -1,7 +1,9 @@
 package com.renergy.energytools.business.services;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -16,27 +18,31 @@ public class SizingCalculator {
 	
 	static Logger log = Logger.getLogger(SizingCalculator.class.getName());   
 	
-    public double calculateAverageDailyLoad(SeedStarter seedStarter){
+    public Map calculateAverageDailyLoad(SeedStarter seedStarter){
     	List<LoadRow> loadRows = seedStarter.getLoadRows();
     	Iterator<LoadRow> loadRowsIterator = loadRows.iterator();
+    	double totalWatts =0.0;
     	double loadForUser = 0.0;
+    	Map map = new HashMap();
 		while (loadRowsIterator.hasNext()) {
 			LoadRow loadRow = loadRowsIterator.next();
 			log.debug("loadRow : " + loadRow.getLoadName() + " quantity :" + loadRow.getLoadQuantity());
 			if(loadRow.getLoadQuantity()!=null){
+			totalWatts +=loadRow.getLoadWatts();
 			double averageHrLoad = (loadRow.getLoadQuantity()*loadRow.getLoadWatts()*loadRow.getHrsPerDay()*loadRow.getDaysPerWeek())/7;
-			loadRow.setWattshraverage(averageHrLoad);
-			log.debug("average daily Load for : " + loadRow.getLoadName() + " is "+ averageHrLoad);
+			loadRow.setWattshraverage(averageHrLoad);			
 			loadForUser += averageHrLoad;			
 			}			
 		}
-    	return loadForUser;    	
+		map.put("loadForUser", loadForUser);
+		map.put("totalWatts",totalWatts);
+    	return map;    	
     }
     
 
     public Battery getBatterySizing(SeedStarter seedStarter){
     	Battery battery = new Battery();
-    	double loadForUser = calculateAverageDailyLoad(seedStarter);
+    	double loadForUser = seedStarter.getLoadForUser();
     	double energyRequiredFromBattery = Math.round((loadForUser/(seedStarter.getInverterEfficiency()/100)));
     	int batteryVoltage=seedStarter.getBattery().getDcVoltage().showVolts();
     	double batteryBank =Math.round((energyRequiredFromBattery*seedStarter.getDaysOfAutonomy()/batteryVoltage));    	

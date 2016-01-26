@@ -22,15 +22,13 @@ package com.renergy.energytools.web.controller;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -94,7 +92,8 @@ public class SeedStarterMngController {
         if (bindingResult.hasErrors()) {
             return "energytools/solarcalculator";
         }
-        seedStarter.setLoadForUser(sizingCalculator.calculateAverageDailyLoad(seedStarter)); 
+        //seedStarter.setLoadForUser(sizingCalculator.calculateAverageDailyLoad(seedStarter)); 
+        Map<?, ?> loadSummary =sizingCalculator.calculateAverageDailyLoad(seedStarter); 
         seedStarter.setBattery(sizingCalculator.getBatterySizing(seedStarter));
         seedStarter.setPvPanel(sizingCalculator.getPVPanelSizing(seedStarter, seedStarter.getBattery()));
         log.debug("seed starter values in save method : " + seedStarter.toString());

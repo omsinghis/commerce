@@ -2,6 +2,18 @@
     <head>
         <title>Step1 : Calculate Your Energy Needs</title>
         <style type="text/css">
+        
+		
+		table { table-layout: fixed;
+        		margin-left: 0em;
+        		margin-right: 0em;
+        		width: 100%
+        		}  
+		table, td, th {
+				    border: 2px solid black;
+				}        		
+				        		
+        
 	        div.worksheet {    
 	        background-color: #DDD;
 	        border: 1px solid #808080;
@@ -39,6 +51,72 @@ a spreadsheet in a spreadsheet program like Excel and fill in a
 table like the one below. A spreadsheet with a blank table is availble
 for download below.
 </p>
+
+<div>
+	<h2 th:text="#{title.new}">Your energy sheet</h2>
+      <form action="#" th:action="@{/tools/powerCalculator}" th:object="${seedStarter}" method="post">    
+        <fieldset>          
+          <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+          </ul>          
+		<div>
+            <label th:text="#{seedstarter.loadRows}">Your Individual Loads</label>
+            <table>
+              <thead>
+                <tr>
+                  <th th:text="#{seedstarter.loadrows.head.rownum}">Row</th>
+                  <th th:text="#{seedstarter.loadrows.head.loadName}">name</th>
+                  <th th:text="#{seedstarter.loadrows.head.quantity}">Quantity</th>
+                  <th th:text="#{seedstarter.loadrows.head.loadtype}">Type</th>
+                  <th th:text="#{seedstarter.loadrows.head.loadWatts}">Watts</th>
+                  <th th:text="#{seedstarter.loadrows.head.useHrPerDay}">hrs/day</th>
+                  <th th:text="#{seedstarter.loadrows.head.usePerWeek}">days/week</th>
+                  <th>
+                    <button type="submit" name="addLoadRow" th:text="#{seedstarter.row.add}">Add row</button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="loadRow,loadRowStat : *{loadRows}">
+                  <td th:text="${loadRowStat.count}">1</td>
+                  <td>
+                    <input type="text" th:field="*{loadRows[__${loadRowStat.index}__].loadName}" th:errorclass="fieldError" />
+                  </td>
+                  <td>
+                    <input type="text" th:field="*{loadRows[__${loadRowStat.index}__].loadQuantity}" th:errorclass="fieldError" />
+                  </td>                  
+                  <td>
+                    <select th:field="*{loadRows[__${loadRowStat.index}__].loadType}">
+                      <option th:each="var : ${allLoadTypes}" th:value="${var.id}" th:text="${var.name}">AC Device</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" th:field="*{loadRows[__${loadRowStat.index}__].loadWatts}" th:errorclass="fieldError" />
+                  </td> 
+                  <td>
+                    <input type="text" th:field="*{loadRows[__${loadRowStat.index}__].hrsPerDay}" th:errorclass="fieldError" />
+                  </td>
+                  <td>
+                    <input type="text" th:field="*{loadRows[__${loadRowStat.index}__].daysPerWeek}" th:errorclass="fieldError" />
+                  </td>                  
+                  <td>
+                    <button type="submit" name="removeLoadRow" th:value="${loadRowStat.index}" th:text="#{seedstarter.row.remove}">Remove row</button>
+                  </td>
+                </tr>
+                <tr><td>Total</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="submit">
+            <button type="submit" name="save" th:text="#{seedstarter.create}">Calculate Your Solar System Requirement</button>    
+          </div>
+		<div class="submit">
+            <button type="submit" name="reset" th:text="#{seedstarter.reset}">Clear Form and Start Again</button>    
+          </div>          
+          
+        </fieldset>
+      </form>
+    </div>
 				
 				
 				
