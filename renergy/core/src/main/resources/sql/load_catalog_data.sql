@@ -755,117 +755,55 @@ INSERT INTO BLC_FULFILLMENT_OPTION_FIXED (FULFILLMENT_OPTION_ID, PRICE) VALUES (
 
 
 
-
-
 --------------------------------------------------------------------------------------------------
  -- Added by Gaurish for Consumer categories and products - 26 Jan 2016
 --------------------------------------------------------------------------------------------------
 
-INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE)
-VALUES (3001,'Solar Consumer','Solar Consumers','/store/consumer',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3001,'Solar Consumer','Solar Consumers','/store/consumer',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3002,'Solar Panels','Solar Panels','/store/panels',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3003,'Solar Lights','Solar Lights','/store/lights',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3004,'Solar Power Generators','Solar Power Generators','/store/power_generators',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3005,'Solar Inverters','Solar Inverters','/store/inverters',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3006,'Solar Cooking','Solar Cooking','/store/cooking',CURRENT_TIMESTAMP);
 
-INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) 
-VALUES (3002,'Solar Panels','Solar Panels','/store/panels',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID,DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (101,3002,3001,1,TRUE);
+INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID,DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (102,3003,3001,2,TRUE);
+INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID,DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (103,3004,3001,3,TRUE);
+INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID,DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (104,3005,3001,4,TRUE);
+INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID,DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (105,3006,3001,5,TRUE);
 
-INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) 
-VALUES (3003,'Solar Lights','Solar Lights','/store/lights',CURRENT_TIMESTAMP);
-
-INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) 
-VALUES (3004,'Solar Power Generators','Solar Power Generators','/store/power_generators',CURRENT_TIMESTAMP);
-
-INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) 
-VALUES (3005,'Solar Inverters','Solar Inverters','/store/inverters',CURRENT_TIMESTAMP);
-
-INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) 
-VALUES (3006,'Solar Cooking','Solar Cooking','/store/cooking',CURRENT_TIMESTAMP);
-
-INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID, 
-	DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (101,3002,3001,1,TRUE);
-INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID, 
-	DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (102,3003,3001,2,TRUE);
-INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID, 
-	DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (103,3004,3001,3,TRUE);
-INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID, 
-	DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (104,3005,3001,4,TRUE);
-INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID, 
-	DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (105,3006,3001,5,TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1001,'/store/consumer/tata_solar_diva','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1002,'/store/consumer/tata_solar_sunjeevini300','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1003,'/store/consumer/tata_solar_dynamo','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1004,'/store/consumer/tata_solar_sunjeevini80','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1005,'/store/consumer/tata_solar_power_lighting','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1006,'/store/consumer/tata_solar_generator','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1007,'/store/consumer/tata_solar_oorja_k30','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1008,'/store/consumer/tata_solar_oorja_k32','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1009,'/store/consumer/tata_solar_oorja_k31','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1010,'/store/consumer/tata_solar_oorja_k33','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1011,'/store/consumer/tata_solar_oorja_pallets','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1012,'/store/consumer/tata_solar_biomass_generator','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1013,'/store/consumer/tata_solar_bio_cook','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1014,'/store/consumer/tata_solar_recold_cooker','Tata',TRUE);
-
-INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT)
-VALUES (1015,'/store/consumer/tata_solar_sonata_stove','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1001,'/store/consumer/tata_solar_diva','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1002,'/store/consumer/tata_solar_sunjeevini300','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1003,'/store/consumer/tata_solar_dynamo','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1004,'/store/consumer/tata_solar_sunjeevini80','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1005,'/store/consumer/tata_solar_power_lighting','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1006,'/store/consumer/tata_solar_generator','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1007,'/store/consumer/tata_solar_oorja_k30','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1008,'/store/consumer/tata_solar_oorja_k32','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1009,'/store/consumer/tata_solar_oorja_k31','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1010,'/store/consumer/tata_solar_oorja_k33','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1011,'/store/consumer/tata_solar_oorja_pallets','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1012,'/store/consumer/tata_solar_biomass_generator','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1013,'/store/consumer/tata_solar_bio_cook','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1014,'/store/consumer/tata_solar_recold_cooker','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1015,'/store/consumer/tata_solar_sonata_stove','Tata',TRUE);
 
 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) 
-VALUES (1001,1001,'Tata Solar Diva 5L - Portable Lighting System(Lantern)','Tata is a brand synonymous to trust, quality, efficiency and innovation. It has pioneered highly innovativeenergy an inseparable part of our lives. The Tata power solar lighting system is an amazing product which will not only brighten up your life but will also save lot of energy and money for you. Easy and compatible use of solar energy is a concrete step in the direction of saving non renewable sources of energy. Order this lighting system from Snapdeal to get the best deals and best price offered by none other in the market. This emergency light comes with a warranty of 1 year on any manufacturing defect.',1555,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1002,1002,'Tata Solar Sunjeevini - 300 Solar Inverter','SunJeevini range of products are ideal for customers with existing inverter and battery who want to use solar energy to charge batteries to get more hours of power back-up.SunJeevini consists of solar panels and a charge controller. This comes with in-built solar priority which harness maximum solar energy and save grid electricity charges.SunJeevini 300 model can be used with inverter rating of 1000 VA and battery capacity of 75-120 x 2 Ah. SunJeevini 300 model can generate 1065 Wh energy which typically supports equivalent loads of 1 Computer (1 x 200 W), 1 Tube light (1 x 40 W), 1 CFL (1 x 14 W) and 2 Ceiling fans (2 x 80 W) for 2.5 hours. Energy generated from the system depends upon battery and inverter efficiency.',69999,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1003,1003,'Tata Solar Dynamo 1100 (Power Pack) Solar Inverter','Dynamo range of solar power generators are a perfect alternative for Invertors (back-up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100 replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100 does not come with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement), however customer has an option to buy the system with structure and Installation kit (Dynamo 1100K).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.Dynamo 1100 comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100 requires less than 100 sq. ft. area for installing PV modules.',459999,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES 
-(1004,1004,'Tata Solar Sunjeevini - 80 Solar Inverter','SunJeevini range of products are ideal for customers with existing inverter and battery who want to use solar energy to charge batteries to get more hours of power back-up.SunJeevini consists of solar panels and a charge controller. This comes with in- built solar priority which harness maximum solar energy and save grid electricity charges.SunJeevini - 80 model can be used with inverter rating of 300 VA and battery capacity of 40-60 Ah. SunJeevini – 80 model can generate 280 Wh energy which typically supports 1 Tube light (1 x 40 W), 1 CFL (1 x 14 W) and 1 Ceiling fan (1 x 80 W) for 2 hours.Energy generated from the system depends upon battery and inverter efficiency.',14500,'Y','Y',CURRENT_TIMESTAMP);
-INSERT INTO BLC_SKU (SKU_ID ,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES 
-(1005,1005,'The Tata power solar lighting','The Tata power solar lighting system has emergency light with solar panel. These solar power panels are of less than 1 watt power. These solar panels trap the energy from sun to harness it into electrical energy using a transformer. Electrical energy produced in by the transformer is the stored in the batteries and used for lighting purpose. Now you don’t have to depend on grid supply or kerosene for charging or lighting of bulb at the time of emergency. Ergonomic design of the solar panels makes maximum utilization of sunlight available to it.',1500,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1006,1006,'Solar Power Generators','Dynamo range of solar power generators are a perfect alternative for Invertors (back- up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100+ replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100+ does not come with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement), however customer has an option to buy the system with structure and Installation kit (Dynamo 1100K+).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.Dynamo 1100+ comes with 4 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 8 hours. Dynamo 1100+ requires less than 100 sq. ft. area for installing PV modules.',459599,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1007,1007,'Oorja Jumbo K30 lx','Power is required to run almost everything in our homes. Since our planet is being harmed due to the great amounts of pollution caused by rapid urbanization and industrialisation, it’s high time we started moving towards economical and environment-friendly means of energy sources. The trusted brand of Tata Power introduces these ideally designed solar panels. It comes in an adequate dimension and size. Now the Tata Power Solar solar panels are available at amazing price through Snapdeal! Add them to your household and help save this planet!',5000,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1008,1008,'Oorja k32','24V-30A hybrid solar charger. Power your home for upto 3 hours with sunjeevini, a retro-fit hybrid solar charge controller with plug-n-play design. Run your house or small business with reduced electricity costs, uninterrupted power by recharging your inverters with free power from the sun.',6500,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES 
-(1009,1009,'Oorja k31','Solar street lantern from TPS consists of a 10W solar module with a 7W CFL and a 7AH sealed lead acid maintenance free battery.The product is easily installable. It gives a light output for 5 hours continuously from a single day''s charge.The light output from the luminaire is 370 lumens which is sufficient to brighten up the entire hallThe improved electronics which minimizes the idle current and gives increased efficiency ensures that the battery is charged efficiently and maximum back up is available for the light output.The various protections for battery charging reverse current, no load and short circuit ensures that the product is safe, reliable and long lasting',5200,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1010,1010,'Oorja k33','A 200 lpd capacity system is sufficient for a family of 6-8 members',16500,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1011,1011,'Oorja Pallets','Dynamo range of solar power generators are a perfect alternative for Invertors (back-up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100K replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100K is available with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.<p.>Dynamo 1100K comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100K requires less than 100sq. ft. area for installing PV modules.',459780,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1012,1012,'Biomass Real','Dynamo range of solar power generators are a perfect alternative for Invertors (back-up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100K replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100K is available with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.<p.>Dynamo 1100K comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100K requires less than 100 sq. ft. area for installing PV modules.',459780,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU(SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1013,1013,'Bio Cook','Dynamo range of solar power generators are a perfect alternative for Invertors (back- up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100K replaces a Diesel Generator set using diesel at an average costof Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100K is available with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.<p.>Dynamo 1100K comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100K requires less than 100 sq. ft. area for installing PV modules.',459780,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1014,1014,'Recold Cooker','Dynamo range of solar power generators are a perfect alternative for Invertors (back-up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100K replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100K is available with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.<p.>Dynamo 1100K comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100K requires less than 100 sq. ft. area for installing PV modules.',459780,'Y','Y',CURRENT_TIMESTAMP); 
-INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES
-(1015,1015,'Sonata Stove','The Tata power solar lighting system has emergency light with solar panel. These solar powerpanels are of less than 1 watt power. These solar panels trap the energy from sun to harness it into electrical energy using a transformer. Electrical energy produced in by the transformer is the stored in the batteries and used for lighting purpose. Now you don’t have to depend on grid supply or kerosene for charging or lighting of bulb at the time of emergency. Ergonomic design of the solar panels makes maximum utilization of sunlight available to it.',1500,'Y','Y',CURRENT_TIMESTAMP);
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1001,1001,'Tata Solar Diva 5L - Portable Lighting System(Lantern)','Tata is a brand synonymous to trust, quality, efficiency and innovation. It has pioneered highly innovativeenergy an inseparable part of our lives. The Tata power solar lighting system is an amazing product which will not only brighten up your life but will also save lot of energy and money for you. Easy and compatible use of solar energy is a concrete step in the direction of saving non renewable sources of energy. Order this lighting system from Snapdeal to get the best deals and best price offered by none other in the market. This emergency light comes with a warranty of 1 year on any manufacturing defect.',1555,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1002,1002,'Tata Solar Sunjeevini - 300 Solar Inverter','SunJeevini range of products are ideal for customers with existing inverter and battery who want to use solar energy to charge batteries to get more hours of power back-up.SunJeevini consists of solar panels and a charge controller. This comes with in-built solar priority which harness maximum solar energy and save grid electricity charges.SunJeevini 300 model can be used with inverter rating of 1000 VA and battery capacity of 75-120 x 2 Ah. SunJeevini 300 model can generate 1065 Wh energy which typically supports equivalent loads of 1 Computer (1 x 200 W), 1 Tube light (1 x 40 W), 1 CFL (1 x 14 W) and 2 Ceiling fans (2 x 80 W) for 2.5 hours. Energy generated from the system depends upon battery and inverter efficiency.',69999,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1003,1003,'Tata Solar Dynamo 1100 (Power Pack) Solar Inverter','Dynamo range of solar power generators are a perfect alternative for Invertors (back-up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100 replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100 does not come with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement), however customer has an option to buy the system with structure and Installation kit (Dynamo 1100K).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.Dynamo 1100 comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100 requires less than 100 sq. ft. area for installing PV modules.',459999,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1004,1004,'Tata Solar Sunjeevini - 80 Solar Inverter','SunJeevini range of products are ideal for customers with existing inverter and battery who want to use solar energy to charge batteries to get more hours of power back-up.SunJeevini consists of solar panels and a charge controller. This comes with in- built solar priority which harness maximum solar energy and save grid electricity charges.SunJeevini - 80 model can be used with inverter rating of 300 VA and battery capacity of 40-60 Ah. SunJeevini – 80 model can generate 280 Wh energy which typically supports 1 Tube light (1 x 40 W), 1 CFL (1 x 14 W) and 1 Ceiling fan (1 x 80 W) for 2 hours.Energy generated from the system depends upon battery and inverter efficiency.',14500,'Y','Y',CURRENT_TIMESTAMP);
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1005,1005,'The Tata power solar lighting','The Tata power solar lighting system has emergency light with solar panel. These solar power panels are of less than 1 watt power. These solar panels trap the energy from sun to harness it into electrical energy using a transformer. Electrical energy produced in by the transformer is the stored in the batteries and used for lighting purpose. Now you don’t have to depend on grid supply or kerosene for charging or lighting of bulb at the time of emergency. Ergonomic design of the solar panels makes maximum utilization of sunlight available to it.',1500,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1006,1006,'Solar Power Generators','Dynamo range of solar power generators are a perfect alternative for Invertors (back- up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100+ replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100+ does not come with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement), however customer has an option to buy the system with structure and Installation kit (Dynamo 1100K+).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.Dynamo 1100+ comes with 4 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 8 hours. Dynamo 1100+ requires less than 100 sq. ft. area for installing PV modules.',459599,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1007,1007,'Oorja Jumbo K30 lx','Power is required to run almost everything in our homes. Since our planet is being harmed due to the great amounts of pollution caused by rapid urbanization and industrialisation, it’s high time we started moving towards economical and environment-friendly means of energy sources. The trusted brand of Tata Power introduces these ideally designed solar panels. It comes in an adequate dimension and size. Now the Tata Power Solar solar panels are available at amazing price through Snapdeal! Add them to your household and help save this planet!',5000,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1008,1008,'Oorja k32','24V-30A hybrid solar charger. Power your home for upto 3 hours with sunjeevini, a retro-fit hybrid solar charge controller with plug-n-play design. Run your house or small business with reduced electricity costs, uninterrupted power by recharging your inverters with free power from the sun.',6500,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1009,1009,'Oorja k31','Solar street lantern from TPS consists of a 10W solar module with a 7W CFL and a 7AH sealed lead acid maintenance free battery.The product is easily installable. It gives a light output for 5 hours continuously from a single day''s charge.The light output from the luminaire is 370 lumens which is sufficient to brighten up the entire hallThe improved electronics which minimizes the idle current and gives increased efficiency ensures that the battery is charged efficiently and maximum back up is available for the light output.The various protections for battery charging reverse current, no load and short circuit ensures that the product is safe, reliable and long lasting',5200,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1010,1010,'Oorja k33','A 200 lpd capacity system is sufficient for a family of 6-8 members',16500,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1011,1011,'Oorja Pallets','Dynamo range of solar power generators are a perfect alternative for Invertors (back-up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100K replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100K is available with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.<p.>Dynamo 1100K comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100K requires less than 100sq. ft. area for installing PV modules.',459780,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1012,1012,'Biomass Real','Dynamo range of solar power generators are a perfect alternative for Invertors (back-up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100K replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100K is available with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.<p.>Dynamo 1100K comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100K requires less than 100 sq. ft. area for installing PV modules.',459780,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1013,1013,'Bio Cook','Dynamo range of solar power generators are a perfect alternative for Invertors (back- up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100K replaces a Diesel Generator set using diesel at an average costof Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100K is available with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.<p.>Dynamo 1100K comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100K requires less than 100 sq. ft. area for installing PV modules.',459780,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1014,1014,'Recold Cooker','Dynamo range of solar power generators are a perfect alternative for Invertors (back-up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100K replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100K is available with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.<p.>Dynamo 1100K comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100K requires less than 100 sq. ft. area for installing PV modules.',459780,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1015,1015,'Sonata Stove','The Tata power solar lighting system has emergency light with solar panel. These solar powerpanels are of less than 1 watt power. These solar panels trap the energy from sun to harness it into electrical energy using a transformer. Electrical energy produced in by the transformer is the stored in the batteries and used for lighting purpose. Now you don’t have to depend on grid supply or kerosene for charging or lighting of bulb at the time of emergency. Ergonomic design of the solar panels makes maximum utilization of sunlight available to it.',1500,'Y','Y',CURRENT_TIMESTAMP);
 
 UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1001 WHERE PRODUCT_ID = 1001;
 UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1002 WHERE PRODUCT_ID = 1002;
@@ -884,82 +822,38 @@ UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1014 WHERE PRODUCT_ID = 1014;
 UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1015 WHERE PRODUCT_ID = 1015;
 
 
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (101,1001,3003,1,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (102,1002,3004,2,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (103,1003,3004,3,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (104,1004,3004,4,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (105,1005,3003,5,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (106,1006,3005,6,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (107,1007,3003,7,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (108,1008,3003,8,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (109,1009,3003,9,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (110,1010,3003,10,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (111,1011,3003,11,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (112,1012,3005,12,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (113,1013,3006,13,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (114,1014,3006,14,TRUE);
-
-INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,
-CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (115,1015,3006,15,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (101,1001,3003,1,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (102,1002,3004,2,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (103,1003,3004,3,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (104,1004,3004,4,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (105,1005,3003,5,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (106,1006,3005,6,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (107,1007,3003,7,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (108,1008,3003,8,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (109,1009,3003,9,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (110,1010,3003,10,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (111,1011,3003,11,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (112,1012,3005,12,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (113,1013,3006,13,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (114,1014,3006,14,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (115,1015,3006,15,TRUE);
 
 
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1001,1001,203,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1002,1002,102,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1003,1003,201,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1004,1004,202,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1005,1005,101,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1006,1006,201,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1007,1007,602,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1008,1008,701,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1009,1009,702,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1010,1010,801,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1011,1011,802,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1012,1012,901,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1013,1013,902,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1014,1014,1102,'primary');
-INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,
-MAP_KEY) VALUES (1015,1015,1101,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1001,1001,203,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1002,1002,102,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1003,1003,201,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1004,1004,202,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1005,1005,101,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1006,1006,201,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1007,1007,602,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1008,1008,701,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1009,1009,702,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1010,1010,801,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1011,1011,802,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1012,1012,901,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1013,1013,902,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1014,1014,1102,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1015,1015,1101,'primary');
 
 
 INSERT INTO BLC_PRODUCT_FEATURED(FEATURED_PRODUCT_ID, SEQUENCE, CATEGORY_ID, PRODUCT_ID)  VALUES (1001, 1, 3001, 1001);
