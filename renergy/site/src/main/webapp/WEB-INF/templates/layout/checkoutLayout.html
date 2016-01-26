@@ -6,13 +6,17 @@
 
 <head>
     <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Broadleaf Commerce Demo Store - Heat Clinic - Checkout</title>
-    <th:block th:replace="/layout/partials/head"></th:block>
+    
+    <th:block th:replace="/main/partials/head"></th:block>
+    
 </head>
 
 <body th:class="${'locale-' + session.blLocale.localeCode}">
+    <div class="bg">
+     <div id="main">
     <div id="notification_bar"></div>
 
-    <header th:substituteby="layout/partials/headerCheckout" />
+    <header th:substituteby="main/partials/headerCheckout" />
     
     <div id="checkout_content" class="width_setter group" role="main">
     
@@ -20,8 +24,9 @@
     
     </div>
 
-    <footer th:substituteby="layout/partials/footer" />
-
+    <footer th:substituteby="main/partials/footer" />
+</div>
+</div>
     <script type="text/javascript" th:inline="javascript">
         /*<![CDATA[*/
         $().ready(function() {
