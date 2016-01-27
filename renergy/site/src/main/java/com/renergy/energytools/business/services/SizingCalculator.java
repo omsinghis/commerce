@@ -18,46 +18,32 @@ public class SizingCalculator {
 	
 	static Logger log = Logger.getLogger(SizingCalculator.class.getName());   
 	
-    public Map calculateAverageDailyLoad(SeedStarter seedStarter){
+    public Map<String, Double> calculateAverageDailyLoad(SeedStarter seedStarter){
     	List<LoadRow> loadRows = seedStarter.getLoadRows();
     	Iterator<LoadRow> loadRowsIterator = loadRows.iterator();
-    	double totalWatts =0.0;
-    	double loadForUser = 0.0;
-    	Map map = new HashMap();
+        double totalWatts =0;
+    	double wattshrperday =0;
+    	double totalWattshrperweek=0;
+    	Map<String, Double> map = new HashMap<String, Double>();
 		while (loadRowsIterator.hasNext()) {
 			LoadRow loadRow = loadRowsIterator.next();
 			log.debug("loadRow : " + loadRow.getLoadName() + " quantity :" + loadRow.getLoadQuantity());
 			if(loadRow.getLoadQuantity()!=null){
 			totalWatts +=loadRow.getLoadWatts();
-			double averageHrLoad = (loadRow.getLoadQuantity()*loadRow.getLoadWatts()*loadRow.getHrsPerDay()*loadRow.getDaysPerWeek())/7;
-			loadRow.setWattshraverage(averageHrLoad);			
-			loadForUser += averageHrLoad;			
+            double weeklyLoadperItem = (loadRow.getLoadQuantity()*loadRow.getLoadWatts()*loadRow.getHrsPerDay()*loadRow.getDaysPerWeek());            
+            loadRow.setWattsTotal(weeklyLoadperItem);
+            totalWattshrperweek += weeklyLoadperItem;            
+         		
 			}			
 		}
-		map.put("loadForUser", loadForUser);
+		double dailyaverageload =totalWattshrperweek/7;	
+		map.put("weeklyLoad",totalWattshrperweek);
+        map.put("dailyaverageload",dailyaverageload);
 		map.put("totalWatts",totalWatts);
     	return map;    	
     }
     
 
-    public Battery getBatterySizing(SeedStarter seedStarter){
-    	Battery battery = new Battery();
-    	double loadForUser = seedStarter.getLoadForUser();
-    	double energyRequiredFromBattery = Math.round((loadForUser/(seedStarter.getInverterEfficiency()/100)));
-    	int batteryVoltage=seedStarter.getBattery().getDcVoltage().showVolts();
-    	double batteryBank =Math.round((energyRequiredFromBattery*seedStarter.getDaysOfAutonomy()/batteryVoltage));    	
-      	double batteryBankwithDOD=Math.round((batteryBank/(seedStarter.getBattery().getDod()/100))); 
-      	battery.setBatteryBankNeeded(energyRequiredFromBattery);
-      	battery.setAhCapacity(batteryBankwithDOD);
-      	battery.setInSeries(Math.round(batteryVoltage/12));
-      	battery.setInParallel(Math.round((batteryBankwithDOD/20)));   
-      	battery.setTotalCount(battery.getInSeries()*battery.getInParallel());
-      	
-      	log.debug("battery sizing " + battery.toString());
-      	
-      	return battery;    	
-    }
-    
     public PVPanel getPVPanelSizing(SeedStarter seedStarter,Battery battery ){
     	PVPanel pvPanel = new PVPanel();
     	double dailyAHTakenFromBattery = battery.getBatteryBankNeeded();
@@ -69,18 +55,6 @@ public class SizingCalculator {
     	log.debug("Panel Sizing " + pvPanel.toString());
 
     	return pvPanel;
-    	
-    }
-    
-    public SeedStarter resetSeedStarted(SeedStarter seedStarter){
-    	Battery battery = new Battery();
-    	PVPanel pvPanel = new PVPanel();
-    	double loadForUser = 0.0;
-    	seedStarter.setLoadForUser(loadForUser);
-    	seedStarter.setBattery(battery);
-    	seedStarter.setPvPanel(pvPanel);
-    	
-    	return seedStarter;
     	
     }
     

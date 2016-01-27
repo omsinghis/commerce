@@ -58,8 +58,8 @@ public class PowerSizingController {
     @RequestMapping(value="/tools/powerCalculator")
     public String showPowerEntryTable(final SeedStarter seedStarter) {
         seedStarter.setDatePlanted(Calendar.getInstance().getTime());   
-        Map<?, ?> loadSummary =sizingCalculator.calculateAverageDailyLoad(seedStarter); 
-        log.debug("Load Summary of the User Power Consumption : " +loadSummary);
+        loadSeedStarter(seedStarter);
+        log.debug("Load Summary of the User Power Consumption : " +seedStarter.toString());
         return "energytools/step1PowerSizing";
     }	
     
@@ -72,7 +72,7 @@ public class PowerSizingController {
     
     
     @RequestMapping(value="/tools/powerCalculator", params={"removeLoadRow"})
-    public String removeLoadRow(final SeedStarter seedStarter, final BindingResult bindingResult, final HttpServletRequest req) {
+    public String removeLoadRow(SeedStarter seedStarter, final BindingResult bindingResult, final HttpServletRequest req) {
         final Integer rowId = Integer.valueOf(req.getParameter("removeLoadRow"));
         seedStarter.getLoadRows().remove(rowId.intValue());
         return "energytools/step1PowerSizing";
@@ -83,12 +83,24 @@ public class PowerSizingController {
         if (bindingResult.hasErrors()) {
             return "energytools/step1PowerSizing";
         }
-        Map<?, ?> loadSummary =sizingCalculator.calculateAverageDailyLoad(seedStarter); 
-        log.debug("Load Summary of the User Power Consumption : " +loadSummary);
-        model.clear();
+        loadSeedStarter(seedStarter);
+        log.debug("Load Summary of the User Power Consumption : " +seedStarter.toString());
+        this.seedStarterService.add(seedStarter);
+        //model.clear();
+        log.debug("seed started : " + seedStarter.toString());
         return "energytools/step1PowerSizing";
     }    
 
   
+    private SeedStarter loadSeedStarter(SeedStarter seedStarter){
+    	Map<String, Double> loadSummary =sizingCalculator.calculateAverageDailyLoad(seedStarter); 
+        double  weeklyLoad = loadSummary.get("weeklyLoad");
+        double dailyaverageload =loadSummary.get("dailyaverageload");
+        double totalWatts = loadSummary.get("totalWatts");
+        seedStarter.setWeeklyLoad(weeklyLoad);
+        seedStarter.setDailyaverageload(dailyaverageload);
+        seedStarter.setTotalWatts(totalWatts);
+        return seedStarter;    	
+    }
     
 }

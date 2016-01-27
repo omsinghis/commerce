@@ -32,8 +32,10 @@ public class SeedStarter {
     private Volt inVolts = Volt.Volts_12;    
     private List<LoadRow> loadRows = new ArrayList<LoadRow>();
     
-    private double loadForUser = 0.0;
-    
+    private double dailyaverageload = 0.0;
+    private double totalWatts = 0.0;
+    private double weeklyLoad=0.0;
+
     
     public SeedStarter() {
         super();
@@ -114,15 +116,6 @@ public class SeedStarter {
 	
 
 
-	public double getLoadForUser() {
-		return loadForUser;
-	}
-
-
-	public void setLoadForUser(double loadForUser) {
-		this.loadForUser = loadForUser;
-	}
-
 
 	public Battery getBattery() {
 		return battery;
@@ -163,14 +156,38 @@ public class SeedStarter {
 		this.pvController = pvController;
 	}
 
-
-	@Override
-	public String toString() {
-		return "SeedStarter [id=" + id + ", datePlanted=" + datePlanted + ", daysOfAutonomy=" + daysOfAutonomy
-				+ ", battery=" + battery + ", inverter=" + inverter + ", pvPanel=" + pvPanel + ", pvController="
-				+ pvController + ", inverterEfficiency=" + inverterEfficiency + ", inVolts=" + inVolts + ", loadRows="
-				+ loadRows + ", loadForUser=" + loadForUser + "]";
+	
+	
+	public double getDailyaverageload() {
+		return dailyaverageload;
 	}
+
+
+	public void setDailyaverageload(double dailyaverageload) {
+		this.dailyaverageload = dailyaverageload;
+	}
+
+
+	public double getTotalWatts() {
+		return totalWatts;
+	}
+
+
+	public void setTotalWatts(double totalWatts) {
+		this.totalWatts = totalWatts;
+	}
+
+
+	public double getWeeklyLoad() {
+		return weeklyLoad;
+	}
+
+
+	public void setWeeklyLoad(double weeklyLoad) {
+		this.weeklyLoad = weeklyLoad;
+	}
+
+
 
 	
 	
