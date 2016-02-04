@@ -219,7 +219,7 @@ p {margin-bottom:16px;}
 
 /*********************************End drop down secondary menu*************************************/
 
-.box-slogan {float:left; width:300px; padding-left:25px; height:320px; background:url(/images/bg-slogan.gif) 0 0 no-repeat;}
+.box-slogan {float:left; width:300px; padding-left:8px; height:320px; background:url(/images/bg-slogan.gif) 0 0 no-repeat;}
 .background-image{height:320px;}
 .slogan-1 {padding:113px 0 20px 0px;} 
 .slogan-2 {position:absolute;top:80px;float:left; padding:61px 0 0 600px;}
@@ -302,7 +302,7 @@ h3 {font-size:2em; line-height:1.2em; margin-bottom:14px; color:#333;}
 }
 
 div, p{
-	color:#6a6a6a;
+	/* color:#6a6a6a; */
 	font:normal 12px/17px Arial, Helvetica, sans-serif;
 }
 
@@ -315,7 +315,7 @@ div, p{
 	width:265px;
 }
 .s2 {
-	background:#FD9900 ;
+	background:#FFCE1A ;
 	height: 160px;
 	width:289px;
 }
@@ -714,7 +714,7 @@ sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: b
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
-ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+/* ul, ol { margin: 1em 0; padding: 0 0 0 40px; } */
 dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
 
@@ -1214,9 +1214,9 @@ span.error_spacer {
         padding: 0;
     }
 
-#content, #checkout_content {
+ #content, #checkout_content {
     width: 1011px;
-    margin-top: 0px;
+    /* margin-top: 0px;
     background-color: #fff;
     padding-bottom: 30px;
     
@@ -1224,12 +1224,14 @@ span.error_spacer {
     -webkit-box-shadow: 0px 2px 7px #C2B9B3;
     box-shadow: 0px 2px 7px #C2B9B3;
     z-index: 1;
-    display: block;
-}
+    display: block; */
+} 
 #content_padding
 {
 	padding-left:10px;
     padding-top:10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 
     #content .title_bar, #checkout_content .title_bar{
@@ -2218,6 +2220,7 @@ ul.payment_methods li {
         float: left;
         display: inline;
         position: relative;
+      
     }
     
         #products li .new_badge {
@@ -2268,7 +2271,7 @@ ul.payment_methods li {
         
         #products li .content {
             width: 220px;
-            height: 118px;
+           /* height: 118px;*/
             font: 13px/18px 'Georgia',serif;
             color: #655c5a;
             overflow: hidden;
@@ -2280,6 +2283,7 @@ ul.payment_methods li {
             font: 18px/21px 'Oxygen', Helvetica, sans-serif;
             margin-bottom: 7px;
             color: #FFCE1A;
+            height: 60px;
         }
         
             #products li .content .title a:link, #products li .content .title a:visited {
@@ -2319,6 +2323,7 @@ ul.payment_methods li {
         font-weight: bold;
     }
 
+
     .pager ul {
         clear: both;
     }
@@ -2331,12 +2336,12 @@ ul.payment_methods li {
         
 #right_column {
     width: 260px;
-    margin: 20px -20px 0 0;
-    background: #FFFFFF;
+    margin: 20px -60px 0 0;
+    /*background: #FFFFFF;*/
     float: right;
     -moz-box-shadow: 0px 2px 7px #C2B9B3;
-    -webkit-box-shadow: 0px 2px 7px #C2B9B3;
-    box-shadow: 0px 2px 7px #C2B9B3;
+   /*  -webkit-box-shadow: 0px 2px 7px #C2B9B3;
+    box-shadow: 0px 2px 7px #C2B9B3; */
 }
 
     #right_column header {
@@ -2345,7 +2350,7 @@ ul.payment_methods li {
         font-weight: 600;
         color: #342020;
         text-transform: uppercase;
-        padding: 10px 20px;
+        padding: 10px 0px;
         background: url('../img/right_column_headerbg.jpg') repeat-x;
         border: none;
     }
@@ -2389,7 +2394,7 @@ ul.payment_methods li {
         background: #FFFFFF;
         margin-bottom: 5px;
         display: block;
-        color: #655C5A;
+        /* color: #655C5A; */
         border-radius: 4px;
         -moz-border-radius: 4px;
         -webkit-border-radius: 4px;

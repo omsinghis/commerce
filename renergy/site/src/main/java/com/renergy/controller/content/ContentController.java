@@ -16,9 +16,14 @@
 
 package com.renergy.controller.content;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.broadleafcommerce.core.web.controller.catalog.BroadleafCategoryController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * This class works in combination with the applicationContext-security.xml where you
@@ -26,16 +31,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * using default spring controllers  @RequestMapping
  */
 @Controller
-public class ContentController {
+public class ContentController extends BroadleafCategoryController{
     
 	   @RequestMapping({"/content/business"})
-	    public String loadBusinessPage(Model model) {    
-	        return "content/business";
+	    public String loadBusinessPage(Model model) {
+	        return "/content/business";
 	    }
-	   
 	    
 		   @RequestMapping({"/content/consumer"})
 		    public String loadConsumerPage(Model model) {   
 		        return "content/consumer";
-		    }	   
+		    } 
+		   
+		   @RequestMapping({"/content/governmentschemes"})
+		    public String loadGovernmentSchemesPage(Model model) {   
+		        return "content/governmentschemes";
+		    }	
 }

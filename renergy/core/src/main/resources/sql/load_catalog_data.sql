@@ -14,8 +14,8 @@ INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,DEFAULT_PARENT_CATEGO
 
 INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE, DISPLAY_TEMPLATE) VALUES (2000,'Home','home','/',CURRENT_TIMESTAMP, 'main/index');
 INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE, DISPLAY_TEMPLATE) VALUES (2001,'Store','Store','/store',CURRENT_TIMESTAMP, 'layout/home');
-INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (2002,'Home Consumers Store','Home Consumers Store','/store/consumer',CURRENT_TIMESTAMP);
-INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (2003,'Commercial Customers Store','Commercial Customer Store','/store/commercial',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (2002,'Home Consumers Store','Home Consumers Store','/store/mens',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (2003,'Commercial Customers Store','Commercial Customer Store','/store/mens',CURRENT_TIMESTAMP);
 INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (2004,'Clearance','Clearance','/clearance',CURRENT_TIMESTAMP);
 
 INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (2007,'Mens','Mens','/mens',CURRENT_TIMESTAMP);
@@ -86,10 +86,10 @@ INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SE
 INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (6, 2003, 3, 3);
 INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (7, 2004, 3, 3);
 
-INSERT INTO BLC_SEARCH_FACET_RANGE (SEARCH_FACET_RANGE_ID, SEARCH_FACET_ID, MIN_VALUE, MAX_VALUE) VALUES (1, 3, 0, 5);
-INSERT INTO BLC_SEARCH_FACET_RANGE (SEARCH_FACET_RANGE_ID, SEARCH_FACET_ID, MIN_VALUE, MAX_VALUE) VALUES (2, 3, 5, 10);
-INSERT INTO BLC_SEARCH_FACET_RANGE (SEARCH_FACET_RANGE_ID, SEARCH_FACET_ID, MIN_VALUE, MAX_VALUE) VALUES (3, 3, 10, 15);
-INSERT INTO BLC_SEARCH_FACET_RANGE (SEARCH_FACET_RANGE_ID, SEARCH_FACET_ID, MIN_VALUE, MAX_VALUE) VALUES (4, 3, 15, null);
+INSERT INTO BLC_SEARCH_FACET_RANGE (SEARCH_FACET_RANGE_ID, SEARCH_FACET_ID, MIN_VALUE, MAX_VALUE) VALUES (1, 3, 0, 5000);
+INSERT INTO BLC_SEARCH_FACET_RANGE (SEARCH_FACET_RANGE_ID, SEARCH_FACET_ID, MIN_VALUE, MAX_VALUE) VALUES (2, 3, 5000, 20000);
+INSERT INTO BLC_SEARCH_FACET_RANGE (SEARCH_FACET_RANGE_ID, SEARCH_FACET_ID, MIN_VALUE, MAX_VALUE) VALUES (3, 3, 20000, 50000);
+INSERT INTO BLC_SEARCH_FACET_RANGE (SEARCH_FACET_RANGE_ID, SEARCH_FACET_ID, MIN_VALUE, MAX_VALUE) VALUES (4, 3, 50000, null);
 
 ------------------------------------------------------------------------------------------------------------------
 -- Inserting products manually involves five steps which are outlined below.   Typically, products are loaded 
@@ -759,8 +759,7 @@ INSERT INTO BLC_FULFILLMENT_OPTION_FIXED (FULFILLMENT_OPTION_ID, PRICE) VALUES (
  -- Added by Gaurish for Consumer categories and products - 26 Jan 2016
 --------------------------------------------------------------------------------------------------
 
-INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3001,'Solar Consumer','Solar Consumers','/store/consumer',CURRENT_TIMESTAMP);
-INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3002,'Solar Panels','Solar Panels','/store/panels',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE,DISPLAY_TEMPLATE) VALUES (3001,'Solar Consumer','Solar Consumers','/store/consumer',CURRENT_TIMESTAMP,'/content/consumer');INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3002,'Solar Panels','Solar Panels','/store/panels',CURRENT_TIMESTAMP);
 INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3003,'Solar Lights','Solar Lights','/store/lights',CURRENT_TIMESTAMP);
 INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3004,'Solar Power Generators','Solar Power Generators','/store/power_generators',CURRENT_TIMESTAMP);
 INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3005,'Solar Inverters','Solar Inverters','/store/inverters',CURRENT_TIMESTAMP);
@@ -859,3 +858,106 @@ INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) V
 INSERT INTO BLC_PRODUCT_FEATURED(FEATURED_PRODUCT_ID, SEQUENCE, CATEGORY_ID, PRODUCT_ID)  VALUES (1001, 1, 3001, 1001);
 INSERT INTO BLC_PRODUCT_FEATURED(FEATURED_PRODUCT_ID, SEQUENCE, CATEGORY_ID, PRODUCT_ID)  VALUES (1002, 1, 3001, 1002);
 INSERT INTO BLC_PRODUCT_FEATURED(FEATURED_PRODUCT_ID, SEQUENCE, CATEGORY_ID, PRODUCT_ID)  VALUES (1003, 1, 3001, 1003);
+
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (8, 3001, 3, 1);
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (9, 3002, 3, 1);
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (10, 3003, 3, 1);
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (11, 3004, 3, 1);
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (12, 3005, 3, 1);
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (13, 3006, 3, 1);
+
+--------------------------------------------------------------------------------------------------
+ -- Added by Hitesh for Commercial categories and products - 28 Jan 2016
+--------------------------------------------------------------------------------------------------
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE,DISPLAY_TEMPLATE) VALUES (3007,'Solar Commercial','Solar Commercial','/store/commercial',CURRENT_TIMESTAMP,'/content/business');INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3008,'Solar Scooter','Solar Scooter','/store/scooter',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3009,'Solar Street Light','Solar Street Light','/store/street',CURRENT_TIMESTAMP);
+
+INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID,DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (106,3008,3007,1,TRUE);
+INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID,DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (107,3009,3007,1,TRUE);
+
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1016,'/store/commercial/Electric_60288992422','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1017,'/store/commercial/Electric_Self_60398310575','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1018,'/store/commercial/street_light_60401251940','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1019,'/store/commercial/street_light_60401251941','Tata',TRUE);
+
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1016,1016,'Tata Solar Diva 5L - Portable Lighting System(Lantern)','Tata is a brand synonymous to trust, quality, efficiency and innovation. It has pioneered highly innovativeenergy an inseparable part of our lives. The Tata power solar lighting system is an amazing product which will not only brighten up your life but will also save lot of energy and money for you. Easy and compatible use of solar energy is a concrete step in the direction of saving non renewable sources of energy. Order this lighting system from Snapdeal to get the best deals and best price offered by none other in the market. This emergency light comes with a warranty of 1 year on any manufacturing defect.',1555,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1017,1017,'Tata Solar Sunjeevini - 300 Solar Inverter','SunJeevini range of products are ideal for customers with existing inverter and battery who want to use solar energy to charge batteries to get more hours of power back-up.SunJeevini consists of solar panels and a charge controller. This comes with in-built solar priority which harness maximum solar energy and save grid electricity charges.SunJeevini 300 model can be used with inverter rating of 1000 VA and battery capacity of 75-120 x 2 Ah. SunJeevini 300 model can generate 1065 Wh energy which typically supports equivalent loads of 1 Computer (1 x 200 W), 1 Tube light (1 x 40 W), 1 CFL (1 x 14 W) and 2 Ceiling fans (2 x 80 W) for 2.5 hours. Energy generated from the system depends upon battery and inverter efficiency.',69999,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1018,1018,'Tata Solar Dynamo 1100 (Power Pack) Solar Inverter','Dynamo range of solar power generators are a perfect alternative for Invertors (back-up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100 replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100 does not come with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement), however customer has an option to buy the system with structure and Installation kit (Dynamo 1100K).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.Dynamo 1100 comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100 requires less than 100 sq. ft. area for installing PV modules.',459999,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1019,1019,'Tata Solar Sunjeevini - 80 Solar Inverter','SunJeevini range of products are ideal for customers with existing inverter and battery who want to use solar energy to charge batteries to get more hours of power back-up.SunJeevini consists of solar panels and a charge controller. This comes with in- built solar priority which harness maximum solar energy and save grid electricity charges.SunJeevini - 80 model can be used with inverter rating of 300 VA and battery capacity of 40-60 Ah. SunJeevini – 80 model can generate 280 Wh energy which typically supports 1 Tube light (1 x 40 W), 1 CFL (1 x 14 W) and 1 Ceiling fan (1 x 80 W) for 2 hours.Energy generated from the system depends upon battery and inverter efficiency.',14500,'Y','Y',CURRENT_TIMESTAMP);
+
+UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1016 WHERE PRODUCT_ID = 1016;
+UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1017 WHERE PRODUCT_ID = 1017;
+UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1018 WHERE PRODUCT_ID = 1018;
+UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1019 WHERE PRODUCT_ID = 1019;
+
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (116,1016,3008,1,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (117,1017,3008,2,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (118,1018,3009,3,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (119,1019,3009,4,TRUE);
+
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1016,1016,203,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1017,1017,102,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1018,1018,201,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1019,1019,202,'primary');
+
+INSERT INTO BLC_PRODUCT_FEATURED(FEATURED_PRODUCT_ID, SEQUENCE, CATEGORY_ID, PRODUCT_ID)  VALUES (1004, 1, 3007, 1016);
+INSERT INTO BLC_PRODUCT_FEATURED(FEATURED_PRODUCT_ID, SEQUENCE, CATEGORY_ID, PRODUCT_ID)  VALUES (1005, 1, 3007, 1017);
+INSERT INTO BLC_PRODUCT_FEATURED(FEATURED_PRODUCT_ID, SEQUENCE, CATEGORY_ID, PRODUCT_ID)  VALUES (1006, 1, 3007, 1018);
+
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (14, 3007, 3, 1);
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (15, 3008, 3, 1);
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (16, 3009, 3, 1);
+--------------------------------------------------------------------------------------------------
+ -- Added by Hitesh for Government Subsidies categories and products - 28 Jan 2016
+--------------------------------------------------------------------------------------------------
+
+
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE,DISPLAY_TEMPLATE) VALUES (3010,'Solar Subsidies','Solar Subsidies','/store/subsidies',CURRENT_TIMESTAMP,'/content/governmentschemes');INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3011,'Solar Cooker','Solar Cooker','/store/cooker',CURRENT_TIMESTAMP);
+INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (3012,'Solar Appliance','Solar Appliance','/store/appliance',CURRENT_TIMESTAMP);
+
+
+INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID,DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (108,3011,3010,1,TRUE);
+INSERT INTO BLC_CATEGORY_XREF (CATEGORY_XREF_ID, SUB_CATEGORY_ID, CATEGORY_ID,DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (109,3012,3010,1,TRUE);
+
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1020,'/store/subsidies/Hamilton-Beach-5-Quart-Portable-Cooker','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1021,'/store/subsidies/Crock-Pot-SCCPVL600-R','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1022,'/store/subsidies/Crock-Pot-SCCPVL610-S','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1023,'/store/subsidies/Microtek-SS1660VA-24v-Solar-Ups-Inverter','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1024,'/store/subsidies/Microtek-UPS-SS1130','Tata',TRUE);
+INSERT INTO BLC_PRODUCT (PRODUCT_ID, URL, MANUFACTURE, IS_FEATURED_PRODUCT) VALUES (1025,'/store/subsidies/Manhari-msl101','Tata',TRUE);
+
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1020,1020,'Hamilton Beach 5 Quart Portable Cooker','Hamilton Beach 5 Quart Portable Cooker have trust, quality, efficiency and innovation. It has pioneered highly innovativeenergy an inseparable part of our lives. The Tata power solar lighting system is an amazing product which will not only brighten up your life but will also save lot of energy and money for you. Easy and compatible use of solar energy is a concrete step in the direction of saving non renewable sources of energy. Order this lighting system from Snapdeal to get the best deals and best price offered by none other in the market. This emergency light comes with a warranty of 1 year on any manufacturing defect.',1555,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1021,1021,'Crock-Pot SCCPVL600-R Cook N Carry 6-Quart Oval Manual ','Crock-Pot SCCPVL600-R Cook N Carry 6-Quart Oval Manual range of products are ideal for customers with existing inverter and battery who want to use solar energy to charge batteries to get more hours of power back-up.SunJeevini consists of solar panels and a charge controller. This comes with in-built solar priority which harness maximum solar energy and save grid electricity charges.SunJeevini 300 model can be used with inverter rating of 1000 VA and battery capacity of 75-120 x 2 Ah. SunJeevini 300 model can generate 1065 Wh energy which typically supports equivalent loads of 1 Computer (1 x 200 W), 1 Tube light (1 x 40 W), 1 CFL (1 x 14 W) and 2 Ceiling fans (2 x 80 W) for 2.5 hours. Energy generated from the system depends upon battery and inverter efficiency.',69999,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1022,1022,'Crock-Pot SCCPVL610-S Programmable Cook and Carry Oval ','Crock-Pot SCCPVL610-S Programmable Cook and Carry Oval range of solar power generators are a perfect alternative for Invertors (back-up power source) and Diesel Generator set used for households and commercial applications. Dynamo solar power generators have been in the field for over 10 years.Dynamo 1100 replaces a Diesel Generator set using diesel at an average cost of Rs. 50 per litre, consuming 1.5 litres per hour. This leads to savings of 27,000 per year.Dynamo consists of a solar panel, PCU/inverter, low maintenance batteries. Dynamo 1100 does not come with structure and Installation kit (complete cables, mounting cables and hardware for installation with minimum maintenance requirement), however customer has an option to buy the system with structure and Installation kit (Dynamo 1100K).PCU/inverter also provides LED and backlit LCD indicators for charge, battery low alarm and load cut off conditions etc. PCU can be mounted on wall. PCU/inverter enclosure is IP21 certified for indoor usage.Dynamo 1100 comes with 2 nos of 180Ah batteries which can power your home typical household load of 800 W (1 * 200 W computer, 1*150 W TV, 4*40 W Tube lights, 5*10W CFLs and 4*60W Ceiling Fans) up to 4 hours. Dynamo 1100 requires less than 100 sq. ft. area for installing PV modules.',459999,'Y','Y',CURRENT_TIMESTAMP); 
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1023,1023,'Microtek SS1660VA 24v Solar Ups Inverter','Microtek SS1660VA 24v Solar Ups Inverter range of products are ideal for customers with existing inverter and battery who want to use solar energy to charge batteries to get more hours of power back-up.SunJeevini consists of solar panels and a charge controller. This comes with in- built solar priority which harness maximum solar energy and save grid electricity charges.SunJeevini - 80 model can be used with inverter rating of 300 VA and battery capacity of 40-60 Ah. SunJeevini – 80 model can generate 280 Wh energy which typically supports 1 Tube light (1 x 40 W), 1 CFL (1 x 14 W) and 1 Ceiling fan (1 x 80 W) for 2 hours.Energy generated from the system depends upon battery and inverter efficiency.',14500,'Y','Y',CURRENT_TIMESTAMP);
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1024,1024,'Microtek-UPS-SS1130 ','Microtek-UPS-SS1130 range of products are ideal for customers with existing inverter and battery who want to use solar energy to charge batteries to get more hours of power back-up.SunJeevini consists of solar panels and a charge controller. This comes with in- built solar priority which harness maximum solar energy and save grid electricity charges.SunJeevini - 80 model can be used with inverter rating of 300 VA and battery capacity of 40-60 Ah. SunJeevini – 80 model can generate 280 Wh energy which typically supports 1 Tube light (1 x 40 W), 1 CFL (1 x 14 W) and 1 Ceiling fan (1 x 80 W) for 2 hours.Energy generated from the system depends upon battery and inverter efficiency.',14500,'Y','Y',CURRENT_TIMESTAMP);
+INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1025,1025,'Manhari msl101','Manhari msl101 range of products are ideal for customers with existing inverter and battery who want to use solar energy to charge batteries to get more hours of power back-up.SunJeevini consists of solar panels and a charge controller. This comes with in- built solar priority which harness maximum solar energy and save grid electricity charges.SunJeevini - 80 model can be used with inverter rating of 300 VA and battery capacity of 40-60 Ah. SunJeevini – 80 model can generate 280 Wh energy which typically supports 1 Tube light (1 x 40 W), 1 CFL (1 x 14 W) and 1 Ceiling fan (1 x 80 W) for 2 hours.Energy generated from the system depends upon battery and inverter efficiency.',14500,'Y','Y',CURRENT_TIMESTAMP);
+
+UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1020 WHERE PRODUCT_ID = 1020;
+UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1021 WHERE PRODUCT_ID = 1021;
+UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1022 WHERE PRODUCT_ID = 1022;
+UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1023 WHERE PRODUCT_ID = 1023;
+UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1024 WHERE PRODUCT_ID = 1024;
+UPDATE BLC_PRODUCT SET DEFAULT_SKU_ID = 1025 WHERE PRODUCT_ID = 1025;
+
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (120,1020,3011,1,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (121,1021,3011,2,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (122,1022,3011,3,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (123,1023,3012,4,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (124,1024,3012,5,TRUE);
+INSERT INTO BLC_CATEGORY_PRODUCT_XREF (CATEGORY_PRODUCT_ID, PRODUCT_ID,CATEGORY_ID, DISPLAY_ORDER, DEFAULT_REFERENCE) VALUES (125,1025,3012,6,TRUE);
+
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1020,1020,1001,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1021,1021,1101,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1022,1022,1201,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1023,1023,1701,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1024,1024,1901,'primary');
+INSERT INTO BLC_SKU_MEDIA_MAP (SKU_MEDIA_ID, BLC_SKU_SKU_ID, MEDIA_ID,MAP_KEY) VALUES (1025,1025,1601,'primary');
+
+INSERT INTO BLC_PRODUCT_FEATURED(FEATURED_PRODUCT_ID, SEQUENCE, CATEGORY_ID, PRODUCT_ID)  VALUES (1007, 1, 3010, 1021);
+INSERT INTO BLC_PRODUCT_FEATURED(FEATURED_PRODUCT_ID, SEQUENCE, CATEGORY_ID, PRODUCT_ID)  VALUES (1008, 1, 3010, 1022);
+INSERT INTO BLC_PRODUCT_FEATURED(FEATURED_PRODUCT_ID, SEQUENCE, CATEGORY_ID, PRODUCT_ID)  VALUES (1009, 1, 3010, 1023);
+
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (17, 3010, 3, 1);
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (18, 3011, 3, 1);
+INSERT INTO BLC_CAT_SEARCH_FACET_XREF (CATEGORY_SEARCH_FACET_ID, CATEGORY_ID, SEARCH_FACET_ID, SEQUENCE) VALUES (19, 3012, 3, 1);

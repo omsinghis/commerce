@@ -1,7 +1,7 @@
 /*======= index.html =======*/
 #page1 #header {background:url(/images/header.jpg) right bottom no-repeat;}
 
-#page1 #content .col-1 {width:690px; margin-right:46px;}
+#page1 #content .col-1 {width:690px; margin-right:46px;margin-bottom: 16px;}
 #page1 #content .col-2 {width:244px;}
 
 #page1 #content .col-1 .col-1 {width:198px; margin-right:37px;margin-left:10px;}
