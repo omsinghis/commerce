@@ -94,7 +94,7 @@ public class SeedStarterMngController {
         }
         //seedStarter.setLoadForUser(sizingCalculator.calculateAverageDailyLoad(seedStarter)); 
         Map<?, ?> loadSummary =sizingCalculator.calculateAverageDailyLoad(seedStarter); 
-        //seedStarter.setBattery(sizingCalculator.getBatterySizing(seedStarter));
+        seedStarter.setBattery(sizingCalculator.getBatterySizing(seedStarter));
         seedStarter.setPvPanel(sizingCalculator.getPVPanelSizing(seedStarter, seedStarter.getBattery()));
         log.debug("seed starter values in save method : " + seedStarter.toString());
         this.seedStarterService.add(seedStarter);
@@ -122,7 +122,7 @@ public class SeedStarterMngController {
     
     @RequestMapping(value="/tools/energyCalculator", params={"reset"})
     public String clearAndReset(final SeedStarter seedStarter) {
-       // sizingCalculator.resetSeedStarted(seedStarter); 
+        sizingCalculator.resetSeedStarted(seedStarter); 
         log.debug("seed is reset");
         return "energytools/solarcalculator";
         }

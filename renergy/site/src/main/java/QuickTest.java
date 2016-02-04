@@ -31,11 +31,10 @@ public class QuickTest {
 			LoadRow loadRow = loadRowsIterator.next();
 			System.out.println("loadRow : " + loadRow.getLoadName() + " quantity :" + loadRow.getLoadQuantity());
 			if(loadRow.getLoadQuantity()!=null){
-			double weeklyLoadperItem = (loadRow.getLoadQuantity()*loadRow.getLoadWatts()*loadRow.getHrsPerDay()*loadRow.getDaysPerWeek());
-		    loadRow.setWattsTotal(weeklyLoadperItem);
-		    double dailyaverageload =weeklyLoadperItem/7;
-			System.out.println("averageHrLoad : " + dailyaverageload);
-			loadForUser += dailyaverageload;			
+			double averageHrLoad = (loadRow.getLoadQuantity()*loadRow.getLoadWatts()*loadRow.getHrsPerDay()*loadRow.getDaysPerWeek())/7;
+			loadRow.setWattshraverage(averageHrLoad);
+			System.out.println("averageHrLoad : " + averageHrLoad);
+			loadForUser += averageHrLoad;			
 			}
 			
 		}

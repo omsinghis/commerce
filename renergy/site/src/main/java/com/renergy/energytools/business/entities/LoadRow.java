@@ -29,7 +29,7 @@ public class LoadRow {
     private double hrsPerDay=0.00;
     private Integer daysPerWeek=null;
     private Integer loadWatts=null;
-    private double wattsTotal=0.00;
+    private double wattshraverage=0.00;
     
  
     public LoadRow(String loadName, Integer loadQuantity,Integer loadWatts,double hrsPerDay,Integer daysPerWeek) {
@@ -100,12 +100,15 @@ public class LoadRow {
 		this.daysPerWeek = daysPerWeek;
 	}
 
-	public double getWattsTotal() {
-		return wattsTotal;
+	public double getWattshraverage() {
+		return wattshraverage;
 	}
 
-	public void setWattsTotal(double wattsTotal) {
-		this.wattsTotal = wattsTotal;
-		}
+	public void setWattshraverage(double wattshraverage) {
+		this.wattshraverage = wattshraverage;
+	}
+
+
+
 
 }
