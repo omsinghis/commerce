@@ -22,7 +22,7 @@ body {
 
 img {border:0; vertical-align:top; text-align:left;}
 
-a {color:#FD9900; outline:none;}
+a {color:#44baec ; outline:none;}
 a:hover{text-decoration:none;}
 
 object {outline:none;}
@@ -691,9 +691,9 @@ body { margin: 0; font: 12px/18px Georgia, serif; color: #655c5a; }
 ::-moz-selection { background: #FD9900; color: #fff; text-shadow: none; }
 ::selection { background: #FD9900; color: #fff; text-shadow: none; }
 
-/* a { color: #44baec; } 
-a:visited { color: #44baec; } */
-a:hover { color: #332B33; }
+a { color: #44baec ; } 
+a:visited { color: #44baec ; } 
+/* a:hover { color: #332B33 ; }  */
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 
@@ -2356,9 +2356,9 @@ ul.payment_methods li {
     }
     
     #right_column #options {
-        width: 220px;
-        margin: 10px 20px;
-    }
+       width: 220px;
+       margin: 10px 0px;
+   }
     
     #right_column #options h3 {
         font: 14px/17px 'Open Sans', Helvetica, sans-serif;

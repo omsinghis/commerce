@@ -1,98 +1,89 @@
-<th:block layout:decorator="main/contentpage3column" layout:fragment="content">
-<!--==============================head=================================-->
-<head>
-    <title th:text="${category.name}"></title>
-    <th:block th:replace="/main/partials/head"></th:block>
-</head>
+<th:block layout:decorator="main/contentpage3column"
+    layout:fragment="content">
+    <!--==============================head=================================-->
+    <head>
+<title th:text="${category.name}"></title>
+<th:block th:replace="/main/partials/head"></th:block>
+    </head>
     <div layout:fragment="content">
-    <div id="content">
-    
-		<div class="wrapper">
-        	<div class="col-1">
-            	 <div class="row-1 indent-bot3">
-				<h3 th:inline="text">
-	                    <span th:text="#{category.viewing}">Viewing</span> [[${category.name}]] ([[${result.startResult}]] - [[${result.endResult}]] <span th:text="#{category.of}">of</span> [[${result.totalResults}]])
-	                    <div th:substituteby="catalog/partials/productPagingOptions" />
-	                </h3>
-	                
-                	<div class="wrapper">
-                		  <ul th:if="${products}" id="products" class="group">
-	                			<li th:each="product : ${products}" th:object="${product}" th:include="catalog/partials/productListItem" class="product_container"></li>
-	           			 </ul>
-                	
-                		 <ul th:if="${skus}" id="products" class="group">
-	                			<li th:each="sku : ${skus}" th:object="${sku}" th:include="catalog/partials/skuListItem" class="product_container"></li>
-	           			 </ul>
-                	
-                	    
-                    	
+        <div id="content">
+
+            <div class="wrapper">
+                <div class="col-1">
+                    <div class="row-1 indent-bot3">
+                        <h3 th:inline="text">
+                            <span th:text="#{category.viewing}">Viewing</span>
+                            [[${category.name}]] ([[${result.startResult}]] -
+                            [[${result.endResult}]] <span th:text="#{category.of}">of</span>
+                            [[${result.totalResults}]])
+                            <div th:substituteby="catalog/partials/productPagingOptions" />
+                        </h3>
+
+                        <div class="wrapper">
+                            <ul th:if="${products}" id="products" class="group">
+                                <li th:each="product : ${products}" th:object="${product}"
+                                    th:include="catalog/partials/productListItem"
+                                    class="product_container"></li>
+                            </ul>
+
+                            <ul th:if="${skus}" id="products" class="group">
+                                <li th:each="sku : ${skus}" th:object="${sku}"
+                                    th:include="catalog/partials/skuListItem"
+                                    class="product_container"></li>
+                            </ul>
+
+
+
+                        </div>
                     </div>
-                </div> 
-                <div class="row-2">
-                	<h3>New Technologies</h3>
-                    <p class="p1">
-                    	<strong class="color-3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit praesent vestibulum molestie lacus aenean nonummy hendrerit mauris unde omnis iste natus error sit voluptatem accusantium doloremque.</strong>
-                    </p>
-                    <p>
-                    	Sit ametonume onsectetur adipisicing elit, sedomo eiusmod tempor et dolore magna aliqua. Ut enaded minim veniam quism nostrud xercitation ullamco laboris nisut aliquip. Lorem ipsum <a href="#">dolor sit amet consectetuer adipiscing</a> elit praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit.
-                    </p>
-                    <p>
-                    	Varius cum sociis natoque penatibust magnis dis parturient montes nascetur ridiculus musulla dui fusce feugiat malesuadat odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magnan donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet.
-                    </p>
-                    <a class="button" href="#"><span>read more</span> </a>                    
+                    <div class="row-2">
+                        <h3>New Technologies</h3>
+                        <p class="p1">
+                            <strong class="color-3">Lorem ipsum dolor sit amet,
+                                consectetuer adipiscing elit praesent vestibulum molestie lacus
+                                aenean nonummy hendrerit mauris unde omnis iste natus error sit
+                                voluptatem accusantium doloremque.</strong>
+                        </p>
+                        <p>
+                            Sit ametonume onsectetur adipisicing elit, sedomo eiusmod tempor
+                            et dolore magna aliqua. Ut enaded minim veniam quism nostrud
+                            xercitation ullamco laboris nisut aliquip. Lorem ipsum <a
+                                href="#">dolor sit amet consectetuer adipiscing</a> elit
+                            praesent vestibulum molestie lacus. Aenean nonummy hendrerit
+                            mauris. Phasellus porta. Fusce suscipit.
+                        </p>
+                        <p>Varius cum sociis natoque penatibust magnis dis parturient
+                            montes nascetur ridiculus musulla dui fusce feugiat malesuadat
+                            odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem.
+                            Maecenas tristique orci ac sem. Duis ultricies pharetra magnan
+                            donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum
+                            dolor sit amet.</p>
+                        <a class="button" href="#"><span>read more</span> </a>
+                    </div>
+                    <div>
+                        <h3></h3>
+                    </div>
                 </div>
-                <div ><h3></h3></div>
-            </div>
-            <div class="col-2">
-            	<div class="indent-bot3">
-            	   <h3 class="color-4">Filter your results</h3>
-            	   <div id="options">
-	                
-	                <div th:substituteby="catalog/partials/facetFilter" />
-	                <div ><h3></h3></div>
-	                <div th:substituteby="catalog/partials/rightHandBannerAds" />
-	                
-	               <!-- <section id="right_column">
-	                    <h3 class="color-4">Featured Products</h3>
-	                    <div id="options">
-	                        <div class="section" th:object="${category}">
-	                             <blc:related_products categoryId="*{id}" quantity="3"/>     
-	                             <ul th:unless="${skus}" id="featured_products" class="group">
-	                                <li th:each="product : ${products}" th:object="${product}" th:include="catalog/partials/productListItem" class="product_container"></li>
-	                             </ul>
-	                             <ul th:if="${skus}" id="featured_products" class="group">
-	                                <li th:each="relatedSku : ${relatedSkus}" th:object="${relatedSku}" th:include="catalog/partials/skuListItem" class="product_container"></li>
-	                             </ul>
-	                        </div>                                  
-	                    </div>
-	                </section> 	    -->             
-	            	</div>
-	            	
-              <!--       <h3 class="color-4">Quality Standards</h3>
-                    <p class="p1">
-                    	<strong class="color-3">Sedomo eiusmod tempor incididunt uastm dolore magna aliqua enaded.</strong>
-                    </p>
-                    <p>
-                    	Minim veniam quinostrud xercitation ullamco laborisnisut aliquip  ex ea commodo loremu lorem ipsum dolor sit mametu consectetuer adipiscing elit praesent vestibulum molestie lacus. Aenean nonummy hendrerit.
-                    </p>
-                    <p>
-                    	Maurism hasellus porta usce suscipit varius mi. Cum <a href="#">sociis natoque penatibus</a> quisquet nulla vest libero nisl, porta lorem dolor agnis parturient montes nascetur ridiculusmusulla dui fusce feugiat malesuada odio norb nunc odio gravida at cursus nec luctus.
-                    </p>
-                    <a class="button" href="#"><span>read more</span> </a>  -->                                       
+                <div class="col-2">
+                    <section id="right_column">
+                        <div id="options">
+                            <header>
+                                <span th:utext="#{category.filterResults}">Filter your
+                                    results</span>
+                            </header>
+
+                            <div th:substituteby="catalog/partials/facetFilter" />
+                        </div>
+
+                        <div>
+                            <h3></h3>
+                        </div>
+                        <div th:substituteby="catalog/partials/rightHandBannerAds" />
+                        
+                    </section>
+
                 </div>
-                <!-- <h3 class="color-4">Latest Technologies</h3>
-                <ul class="list-1 indent-bot">
-                    <li><a href="#">Lorem ipsum dolor amet consectet </a></li>
-                    <li><a href="#">adipiscing elit Praesent vestibulum </a></li>
-                    <li><a href="#">molestie lacus Aenean nonummy </a></li>
-                    <li><a href="#">hendrerit mauris Phasellus porta </a></li>
-                    <li><a href="#">Fusce suscipit varius mi Cum sociis </a></li>
-                    <li><a href="#">natoque penatibus magnis dis partur </a></li>
-                    <li><a href="#">montes nascetur ridiculus mus Null </a></li>                
-                </ul>
-                <a class="button" href="#"><span>read more</span> </a> -->
             </div>
-        </div>    
-    </div>
+        </div>
     </div>
 </th:block>
