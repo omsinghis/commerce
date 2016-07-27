@@ -3,6 +3,7 @@ package com.renergy.energytools.web.controller;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,11 @@ public class BatterySizingController {
     }
 	
     @RequestMapping(value="/tools/batteryCalculator")
-    public String batterySizing(final Battery battery) {
+    public String batterySizing(final Battery battery,@ModelAttribute("loadSummary")Map<?, ?> loadSummary) {
+    	if(!loadSummary.isEmpty()){
+    	battery.setWattHrsNeededPerDay(Double.parseDouble(loadSummary.get("loadForUser").toString()));
+    	}
+    	log.debug("Load Summary in step 2 : " +loadSummary);
            return "energytools/step2BatterySizing";
     }
 
@@ -54,6 +59,5 @@ public class BatterySizingController {
         log.debug("the calculate method is now called  : " + battery.toString());
         return "energytools/step2BatterySizing";
     }
-    
-    
+        
 }

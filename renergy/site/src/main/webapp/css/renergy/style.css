@@ -222,7 +222,7 @@ p {margin-bottom:16px;}
 .box-slogan {float:left; width:300px; padding-left:8px; height:320px; background:url(/images/bg-slogan.gif) 0 0 no-repeat;}
 .background-image{height:320px;}
 .slogan-1 {padding:113px 0 20px 0px;} 
-.slogan-2 {position:absolute;top:80px;float:left; padding:61px 0 0 600px;}
+.slogan-2 {position:absolute;top:80px;padding:40px 0 0 600px;}
 
 .button-top {display:inline-block; color:#fff; background:url(/images/button-top-left.gif) 0 0 no-repeat #f00;}
 .button-top strong {display:block; padding:5px 14px 6px; background:url(/images/button-top-right.gif) right 0 no-repeat;}

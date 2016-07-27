@@ -14,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.renergy.energytools.business.entities.LoadRow;
 import com.renergy.energytools.business.entities.LoadType;
@@ -55,13 +56,26 @@ public class PowerSizingController {
     }
     
       
-    @RequestMapping(value="/tools/powerCalculator")
+    @RequestMapping("/tools/powerCalculator")
     public String showPowerEntryTable(final SeedStarter seedStarter) {
         seedStarter.setDatePlanted(Calendar.getInstance().getTime());   
         Map<?, ?> loadSummary =sizingCalculator.calculateAverageDailyLoad(seedStarter); 
-        log.debug("Load Summary of the User Power Consumption : " +loadSummary);
+        log.debug("Load Summary at Initialization : " +loadSummary);
         return "energytools/step1PowerSizing";
     }	
+    
+    @RequestMapping(value="/tools/powerCalculator", params={"save"})
+    public String saveSeedstarter(final SeedStarter seedStarter, final BindingResult bindingResult,RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            return "energytools/step1PowerSizing";
+        }
+        Map<?, ?> loadSummary =sizingCalculator.calculateAverageDailyLoad(seedStarter);         
+        this.seedStarterService.add(seedStarter);
+        redirectAttributes.addFlashAttribute("loadSummary", loadSummary);
+        log.debug("Load Summary after save/calculate : " +loadSummary);
+        //model.clear();
+        return "redirect:/tools/batteryCalculator";
+    }    
     
     
     @RequestMapping(value="/tools/powerCalculator", params={"addLoadRow"})
@@ -78,16 +92,6 @@ public class PowerSizingController {
         return "energytools/step1PowerSizing";
     }    
     
-    @RequestMapping(value="/tools/powerCalculator", params={"save"})
-    public String saveSeedstarter(final SeedStarter seedStarter, final BindingResult bindingResult, final ModelMap model) {
-        if (bindingResult.hasErrors()) {
-            return "energytools/step1PowerSizing";
-        }
-        Map<?, ?> loadSummary =sizingCalculator.calculateAverageDailyLoad(seedStarter); 
-        log.debug("Load Summary of the User Power Consumption : " +loadSummary);
-        model.clear();
-        return "energytools/step1PowerSizing";
-    }    
 
   
     

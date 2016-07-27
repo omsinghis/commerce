@@ -34,11 +34,130 @@
         		
             	<h3>Part A - Part A - Fill out a power needs table</h3>
 				<p>
-Get out a sheet of paper, a pencil and a calculator, or open up 
-a spreadsheet in a spreadsheet program like Excel and fill in a 
-table like the one below. A spreadsheet with a blank table is availble
-for download below.
-</p>
+				Get out a sheet of paper, a pencil and a calculator, or open up 
+				a spreadsheet in a spreadsheet program like Excel and fill in a 
+				table like the one below. A spreadsheet with a blank table is availble
+				for download below.
+				</p>
+
+				<div class="worksheet">
+				  <form name="solar_panels_calc_form" th:object="${battery}" th:action="@{/tools/panelCalculator}">
+				  Fill in the following and click on the Calculate button...
+				  <br></br>
+				  <table>  <tr><td valign="top" align="right" style="width: 180px">
+				    Watt hours needed per day:
+				  </td><td valign="top" style="width: 150px">
+				   <input type="text" id="watt_hrs_needed_per_day" name="watt_hrs_needed_per_day" size="5"/> (Wh/day)
+				  </td><td valign="top">
+				    Insert your watt hours needed per day. This is the value you
+				    got from Step 1, Part C in 
+				    <a href="calculate_your_power_needs.htm" target="_blank">working out your power needs</a>.
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    Solar array voltage:
+				  </td><td valign="top">
+				    <input type="text" id="solar_array_voltage" name="solar_array_voltage" size="5"/> (V)
+				  </td><td valign="top">
+				    At first this is a guess at how many volts will be across the wires 
+				    coming from your solar array. As you refine your design this value
+				    will become more certain. It's selected based on a few possible 
+				    factors:<br></br>
+				    1. Your charge controller may be able to handle only a certain set 
+				    of voltages from your solar array, so if you already have a 
+				    charge controller in mind then choose a voltage from its list
+				    of input voltages.<br></br>
+				    2. The current from the solar array affects the 
+				    thickness and cost of the wires coming from the solar array -
+				    the higher the voltage the cheaper/thinner the wire. Item 1
+				    below the calculator talks more about that.<br></br>
+				    <br></br>
+				    The Solar array voltage is usually around 12, 24 or 48, the 
+				    larger the system the higher the value. If you don't know then 
+				    enter 24 for now. But once you've gone on to the step to find
+				    out your wire size, you'll likely come back and change this value.
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    <p id="eg_amps_needed_from_array_per_day_lval"></p>
+				  </td><td valign="top">
+				    <p id="eg_amps_needed_from_array_per_day_res"></p>
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    Bright sunshine hours per day:
+				  </td><td valign="top" style="width: 150px">
+				    <input type="text" id="sunshine_hours_per_day" name="sunshine_hours_per_day" size="5"/> (h/day)
+				  </td><td valign="top">
+				    This is the average number hours per day you get full sunshine.
+				    Select this for the season which you'll be using your off-grid
+				    system. For example, for a summer cottage use the average sunshine
+				    hours per day during the summer. For a year round location use the 
+				    average sunshine per day for the year.
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    <p id="eg_amps_needed_from_array_lval"></p>
+				  </td><td valign="top">
+				    <p id="eg_amps_needed_from_array_res"></p>
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    Solar panel maximum power current:
+				  </td><td valign="top">
+				    <input type="text" id="solar_panel_max_power_current" name="solar_panel_max_power_current" size="5"/> (A)
+				  </td><td valign="top">
+				    This one is tricky since you may not have chosen a specific solar 
+				    panel yet. But this is when you have to start looking for one.
+				    You may later change your mind and have to try a different one
+				    and come back to this.<br></br>
+				    <br></br>
+				    On the back of the solar panel, or on the specification page which
+				    you find online or have in paper form, there is a value for the
+				    Maximum power current (Imp or Impp). That's what you put here. See
+				    <a href="#SOLAR_PANEL_SPECS">below</a>
+				    for more about these specifications.
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    Solar panel maximum power voltage:
+				  </td><td valign="top">
+				    <input type="text" id="solar_panel_max_power_voltage" name="solar_panel_max_power_voltage" size="5"/> (V)
+				  </td><td valign="top">
+				    Just as with the current you entered above, this is
+				    on the back of the solar panel, or on the specification page which
+				    you find online or have in paper form. There should be a value for the
+				    Maximum power voltage (Vmp, Umpp, ...). That's what you put here. See 
+				    <a href="#SOLAR_PANEL_SPECS">below</a>
+				    for more about these specifications.
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    <p id="eg_n_panels_in_parallel_lval"></p>
+				  </td><td valign="top">
+				    <p id="eg_n_panels_in_parallel_res"></p>
+				
+				  </td></tr><tr><td valign="top" align="right">
+				    <p id="eg_n_panels_in_series_lval"></p>
+				  </td><td valign="top">
+				    <p id="eg_n_panels_in_series_res"></p>
+				  </td></tr>  </table>
+				
+				  <input type="button" value="Calculate" onclick="calc_n_panels_needed()"/><br></br>
+				  <br></br>
+				  Result:<br></br>
+				  The number of solar panels needed is
+				  <input type="text" id="n_panels_needed" name="n_panels_needed" value="0" size="6" readonly="true" class="worksheet_result"/>:
+				  <input type="text" id="n_panels_parallel_needed" name="n_panels_parallel_needed" value="0" size="6" readonly="true" class="worksheet_result"/>
+				  parallel strings, each string of panels containing 
+				  <input type="text" id="n_panels_series_needed" name="n_panels_series_needed" value="0" size="6" readonly="true" class="worksheet_result"/>
+				  in series.
+				  <br></br>
+				  The current on the wires coming from the solar array will be
+				  <input type="text" id="amps_from_array" name="amps_from_array" value="0" size="6" readonly="true" class="worksheet_result"/>
+				  A (amps). This is 2% of an 
+				  <input type="text" id="array_amps_is_two_percent_of" name="array_amps_is_two_percent_of" value="0" size="6" readonly="true" class="worksheet_result"/>
+				  AHr (amp hour) battery bank.<br></br>
+				  Your charge controller must accept at least
+				  <input type="text" id="charge_controller_amps" name="charge_controller_amps" value="0" size="6" readonly="true" class="worksheet_result"/>
+				  A (amps) as input (
+				  <input type="text" id="amps_from_array_2" name="amps_from_array_2" value="0" size="6" readonly="true" class="worksheet_result"/>
+				  plus 20%).
+				  </form>
+				</div> <!-- worksheet -->
 				
 				
 				
