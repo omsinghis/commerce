@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.renergy.energytools.business.entities.Battery;
 import com.renergy.energytools.business.entities.Volt;
@@ -26,13 +27,19 @@ public class BatterySizingController {
     }
 	
     @RequestMapping(value="/tools/batteryCalculator")
+    public String batterySizing(final Battery battery) {
+         return "energytools/step2BatterySizing";
+    }
+
+    @RequestMapping(value="/tools/batteryCalculator/step2")
     public String batterySizing(final Battery battery,@ModelAttribute("loadSummary")Map<?, ?> loadSummary) {
     	if(!loadSummary.isEmpty()){
     	battery.setWattHrsNeededPerDay(Double.parseDouble(loadSummary.get("loadForUser").toString()));
     	}
     	log.debug("Load Summary in step 2 : " +loadSummary);
-           return "energytools/step2BatterySizing";
+        return "energytools/step2BatterySizing";
     }
+    
 
     @RequestMapping(value="/tools/batteryCalculator", params={"calculate"},method = RequestMethod.POST)
     public String calculateSizing(Battery battery,BindingResult bindingResult, ModelMap model) {

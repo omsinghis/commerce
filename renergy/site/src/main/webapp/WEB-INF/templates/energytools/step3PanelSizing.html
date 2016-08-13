@@ -41,13 +41,18 @@
 				</p>
 
 				<div class="worksheet">
-				  <form name="solar_panels_calc_form" th:object="${battery}" th:action="@{/tools/panelCalculator}">
+				  <form name="solar_panels_calc_form" th:object="${panel}" th:action="@{/tools/panelCalculator}" method="post">
+				  
+				  <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+           			 <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+         		 </ul>
+				  
 				  Fill in the following and click on the Calculate button...
 				  <br></br>
 				  <table>  <tr><td valign="top" align="right" style="width: 180px">
 				    Watt hours needed per day:
 				  </td><td valign="top" style="width: 150px">
-				   <input type="text" id="watt_hrs_needed_per_day" name="watt_hrs_needed_per_day" size="5"/> (Wh/day)
+				 <input type="text" th:field="*{wattHrsNeededPerDay}" th:errorclass="fieldError" size="5"/>(Wh/day)
 				  </td><td valign="top">
 				    Insert your watt hours needed per day. This is the value you
 				    got from Step 1, Part C in 
@@ -56,7 +61,7 @@
 				  </td></tr><tr><td valign="top" align="right">
 				    Solar array voltage:
 				  </td><td valign="top">
-				    <input type="text" id="solar_array_voltage" name="solar_array_voltage" size="5"/> (V)
+				    <input type="text" th:field="*{solarArrayVoltage}" th:errorclass="fieldError" size="5"/> (V)
 				  </td><td valign="top">
 				    At first this is a guess at how many volts will be across the wires 
 				    coming from your solar array. As you refine your design this value
@@ -84,7 +89,7 @@
 				  </td></tr><tr><td valign="top" align="right">
 				    Bright sunshine hours per day:
 				  </td><td valign="top" style="width: 150px">
-				    <input type="text" id="sunshine_hours_per_day" name="sunshine_hours_per_day" size="5"/> (h/day)
+				    <input type="text" th:field="*{sunshineHoursPerDay}" th:errorclass="fieldError" size="5"/> (h/day)
 				  </td><td valign="top">
 				    This is the average number hours per day you get full sunshine.
 				    Select this for the season which you'll be using your off-grid
@@ -100,7 +105,7 @@
 				  </td></tr><tr><td valign="top" align="right">
 				    Solar panel maximum power current:
 				  </td><td valign="top">
-				    <input type="text" id="solar_panel_max_power_current" name="solar_panel_max_power_current" size="5"/> (A)
+				    <input type="text" th:field="*{solarPanelMaxPowerCurrent}" th:errorclass="fieldError" size="5"/> (A)
 				  </td><td valign="top">
 				    This one is tricky since you may not have chosen a specific solar 
 				    panel yet. But this is when you have to start looking for one.
@@ -116,7 +121,7 @@
 				  </td></tr><tr><td valign="top" align="right">
 				    Solar panel maximum power voltage:
 				  </td><td valign="top">
-				    <input type="text" id="solar_panel_max_power_voltage" name="solar_panel_max_power_voltage" size="5"/> (V)
+				    <input type="text" th:field="*{solarPanelMaxPowerVoltage}" th:errorclass="fieldError" size="5"/> (V)
 				  </td><td valign="top">
 				    Just as with the current you entered above, this is
 				    on the back of the solar panel, or on the specification page which
@@ -136,7 +141,7 @@
 				    <p id="eg_n_panels_in_series_res"></p>
 				  </td></tr>  </table>
 				
-				  <input type="button" value="Calculate" onclick="calc_n_panels_needed()"/><br></br>
+     			  <button type="submit" name="calculate" th:text="#{seedstarter.calculate}">Calculate</button> 
 				  <br></br>
 				  Result:<br></br>
 				  The number of solar panels needed is
@@ -158,6 +163,277 @@
 				  plus 20%).
 				  </form>
 				</div> <!-- worksheet -->
+								
+								
+				<h3><a name="SOLAR_PANEL_SPECS">Solar panel specifications</a></h3>
+				<p style="margin-bottom: 0px">
+				Solar panels are specified by a few values which can be found on a label
+				on the back of the solar panel (see photos below) or by searching on the
+				internet for the panel's manufacturer and model number. The values
+				are obtained under certain standard test conditions (at sea level, 
+				a certain temperature and amount of sunlight) and will not
+				reflect what you'll actually get at all times.
+				</p>
+				<table class="centered">  <tr><td>
+				  <table>
+				  <caption>Front and back of a panel, and the label on the back.<br></br>
+				    (Note that this is not the one used for the examples below.)</caption>
+				  <tr><td><img src="/images/cms/label_on_the_back_of_solar_panel_module.jpg"
+				    alt="Front and back of a solar panel, or solar module, and the 
+				      label with the specifications on the back of the module."/></td></tr>
+				  </table>
+				</td></tr>  </table>
+				<p>
+				The important values are:
+				</p>
+				<table class="centered" style="float: right">  <tr><td class="border">
+				  <table>
+				  <caption>Short circuit current.</caption>
+				  <tr><td><img src="/images/cms/solar_panel_isc_short_circuit_current_diagram.jpg"
+				    alt="Short circuit current (Isc) diagram."/></td></tr>
+				  </table>
+				</td><td class="border">
+				  <table>
+				  <caption>Open circuit voltage.</caption>
+				  <tr><td><img src="/images/cms/solar_panel_voc_open_circuit_voltage_diagram.jpg"
+				    alt="Open circuit voltage (Voc) diagram."/></td></tr>
+				  </table>
+				</td></tr>  </table>
+				<ul style="margin-top: 0px">
+				  <li><span class="defn">Short circuit current (Isc)</span> - This is the
+				      current when both ends of a solar panel are directly connected 
+				      together. In the diagram on the right there is no 
+				      load in this case; the two output wires in the back of the solar 
+				      panel are connected to each other.<br/>
+				      The "I" in Isc stands for intensity and is an old word for current.
+				      The "sc" stands for short circuit, which is what
+				      it's called when the two wires of an electrical circuit are 
+				      connected together with no load in between.</li>
+				  <li><span class="defn">Open circuit voltage (Voc or Uoc)</span> - This 
+				      is the voltage measured when nothing is connected to the solar panel
+				      i.e. no electrons are flowing, there is no current. In the diagram 
+				      on the right the two output wires in the back of the solar panel 
+				      are both not connected to anything. A solar panel's voltage is at 
+				      a maximum when there is nothing making demands on it, or in more 
+				      technical terms, when there is nothing drawing current from it.<br/>
+				      The "V" or "U" in Voc or Uoc stand for volts and "oc" stands for 
+				      open circuit, the circuit is open with nothing in between the 
+				      two ends.</li>
+				  <li><span class="defn">Maximum power current (Imp or Impp)</span> - This 
+				      is the current the panel has available when the panel's power output 
+				      is at a maximum under certain standard sunlight and temperature 
+				      conditions. See immediately below this list for more about this.<br/>
+				      The "I" stands for intensity and is an old word for 
+				      current. The "mp" or "mpp" stand for maximum power or maximum power 
+				      point.</li>
+				  <li><span class="defn">Maximum power voltage (Vmp, Umpp, ...)</span> - This
+				      is the voltage the panel produces when the panel's power output
+				      is at a maximum under certain standard sunlight and temperature 
+				      conditions. See immediately below this list for more about this.<br/>
+				      The "V" or "U" stands for volts and "mp" or "mpp" stand
+				      for maxium power or maximum power point and there can be other 
+				      variations of these letters.</li>
+				</ul>
+				<table>  <tr><td>
+				<!-- this is in a table to keep the stuff below it from being overlapped
+				     by the diagram -->
+				<table class="centered" style="float: right">  <tr><td>
+				  <table>
+				  <caption>Maximum power point graph.</caption>
+				  <tr><td><img src="/images/cms/solar_panel_maximum_power_point_graph.jpg" alt="Maximum power current, maximum power voltage and maximum power graph."/></td></tr>
+				  </table>
+				</td></tr>  </table>
+				<p>
+				Maximum power current and maximum power voltage are related and
+				exist at the same time, when the power is at a maximum (see the graph
+				on the right.) That's because the power is equal to the current 
+				multiplied by the voltage:
+				</p>
+				<img src="/images/cms/power_current_voltage_formula.jpg"
+				    alt="Formula for power, power = current x voltage."/>
+				<p>
+				So when the product of the two is the highest it can be, that's when
+				you have maximum power. As the graph shows, it's not 
+				when the current is at a maximum (that's Isc) and not when the 
+				voltage is at a maximum (that's Voc). Maximum power current and maximum
+				power voltage happen when what you get when 
+				they're multiplied together (the product) is at a maximum, when the 
+				power is at a maximum. That's why they're not called maximum current
+				and maximum voltage, but maximum power current and maximum power voltage
+				instead.
+				</p>
+				</td></tr>  </table>
+				
+				<table>  <tr><td>
+				<!-- this is in a table to keep the stuff below it from being overlapped
+				     by the diagram -->
+				<h3>Understanding the above solar array size values</h3>
+				<table class="centered" style="float: right">  <tr><td class="border">
+				  <table>
+				  <caption></caption>
+				  <tr><td><img src="/images/cms/series_strings_and_parallel_solar_array.jpg"
+				    alt="How series strings and parallel for solar arrays works."/></td></tr>
+				  </table>
+				</td></tr>  </table>
+				<p>
+				In the diagram on the right, the values shown in the rectangles that
+				represent individual solar panels are the maximum power voltage and
+				the maximum power current.
+				</p>
+				<p>
+				Your solar array is made up of some number of series strings
+				connected in parallel. These terms were covered when you sized your 
+				battery bank but are worth repeating here.
+				</p>
+				<p>
+				Connecting solar panels in series means connecting the positive of
+				one panel to the negative of the next panel, and so on, as shown
+				on the right. A set of panels connected in this way is called a
+				series string, or just a string. When you do this, the voltages
+				of all the panels in the string are added up to get a larger voltage.
+				The total current is the same as for a single solar panel.
+				So if you need a higher voltage output from your solar array then
+				you'll be connecting more panels together in series.
+				</p>
+				<p>
+				Connecting solar panels in parallel means connecting the positives
+				together and the negatives together. When connecting series strings of
+				panels together, only the positives at one end of the strings are
+				connected together and the negatives at the other end of the strings
+				are connected together. The diagram on the right shows this.
+				When you do this, the total current is equal to the current for
+				one solar panel multiplied by the number of strings that are connected
+				together. The total voltage is the same as for a single series string.
+				</p>
+				</td></tr>  </table>
+				
+				<h4>Our example</h4>
+				<p>
+				We start out with the watt hours needed per day from the 
+				<a href="calculate_your_power_needs.htm" target="_blank">working out your power needs</a>
+				page, 2922 Wh/day. The suggested voltage to start with is 24 volts.
+				In our area I happen to know we get an average of 3 hours of sunshine
+				per day on a year round basis. Shopping around, I found a solar
+				panel whose Maximum Power Current is 8.15 amps and whose Maximum
+				Power Voltage is 28 volts. So my starting values are:
+				</p>
+				<table class="centered">  <tr><td>
+				  <img src="/images/cms/example_1a_sizing_solar_array.jpg"
+				    alt="Example 1a solar array parameters for sizing solar array."/>
+				</td></tr>  </table>
+				<p>
+				Entering the above in the calculator and clicking on the Calculate 
+				button tells us that the current on the wires from the solar array
+				will be 40.6amps. We then go to the 
+				<a href="solar_voltage_drop_table_calculator_wire_sizing_for_dc.htm" target="_blank">
+				voltage drop calculator</a> and enter the following parameters:
+				</p>
+				<table class="centered">  <tr><td>
+				  <img src="/images/cms/example_1a_wire_size.jpg"
+				    alt="Example 1a wire sizing parameters for sizing solar array."/>
+				</td></tr>  </table>
+				<p>
+				The voltage drop calculator tells us that for 40.6amps we will require 
+				a wire size of 2/0 gauge (AWG), which is much too expensive. So
+				we go back to the above solar array calculator and increase the
+				Solar array volage to 72 V, entering the following parameters:
+				</p>
+				<table class="centered">  <tr><td>
+				  <img src="/images/cms/example_1b_sizing_solar_array.jpg"
+				    alt="Example 1b solar array parameters for sizing solar array."/>
+				</td></tr>  </table>
+				<p>
+				As a result of that we are told that the current on the wires from the
+				solar array will be 13.5 amps. Going back to the 
+				<a href="solar_voltage_drop_table_calculator_wire_sizing_for_dc.htm" target="_blank">
+				voltage drop calculator</a> and with the new voltage and current
+				we enter this:
+				</p>
+				<table class="centered">  <tr><td>
+				  <img src="sizing_selecting_solar_panels_pv_off_grid/example_1b_wire_size.jpg"
+				    alt="Example 1b wire sizing parameters for sizing solar array."/>
+				</td></tr>  </table>
+				<p>
+				This time the voltage drop calculator tells us the wire need only
+				be 10 gauge (AWG) which is affordable.
+				</p>
+				<p>
+				So the result is that we need of 6 solar panels. We'll wire
+				them as 2 series strings with 3 panels in each string. Then we'll
+				connect the two strings in parallel. This is the same as the
+				parallel example in the above diagram. Also, the wire between the
+				solar array and the charge controller will be 2 40 foot lengths
+				of 10 AWG insulated wire, one for the positive and one for the negative.
+				We'll of course either need to run a ground wire, also 10 AWG, or
+				hammer a ground rod into the ground at the array.
+				</p>
+				
+				<h3>Some items to consider</h3>
+				<p>
+				At this point there are some items you need to look at that may cause
+				you to change the above values.
+				</p>
+				
+				<h3>Item 1. Is the current on the wires from the solar array too high?</h3>
+				<p>
+				One of the last values calculated and shown near the bottom above is the 
+				current that will be on the wires going from the solar array to the
+				charge controller. This is usually two or more very long wires, maybe 
+				going from the roof to the basement or from the base of a pole, then 
+				underground in conduit and then into the basement. The higher the value 
+				you get for this, the thicker that wire will have to be. And copper wire
+				is expensive so you want it to be as thin as possible.
+				</p>
+				<p>
+				You can get some idea of how thick this wire will need to be by
+				using <a href="solar_voltage_drop_table_calculator_wire_sizing_for_dc.htm" target="_blank">
+				this wire sizing/voltage drop calculator</a>.
+				</p>
+				<p>
+				Once you know the thickness of wire you can shop around. If the
+				price is too much then redo the above calculation starting with
+				a higher Solar array voltage. If you went through the above example,
+				you'll see that we did just that.
+				</p>
+				
+				<h3>Item 2. The current on the wires from the solar array must be at least 2% the battery bank capacity</h3>
+				<p>
+				As with item 1 above, this involves the current that will be on the 
+				wires going from the solar array to the charge controller.
+				This value must be at least 2% of the battery bank capacity
+				which you got from 
+				<a href="sizing_select_batteries_for_off_grid_solar_system.htm" target="_blank">
+				the battery sizing calculator in Step 2</a>. 
+				For your convenience, the size of a battery bank 
+				that your solar array's current is 2% is given as one of the outputs of
+				the calculator above. If that value is larger than your battery bank 
+				capacity 
+				then you are okay. If not, then you'll have to start the form above 
+				with a larger Watt hours needed per day until the battery
+				bank capacity calculated above is larger than your battery bank capacity.
+				Most often this isn't an issue.
+				</p>
+				
+				<h3>Item 3. Your charge controller must handle an extra 20% amps</h3>
+				<p>
+				A lake, snow and clouds all reflect extra sunlight onto your solar
+				array. It's as if there are extra suns in the sky. As a rule of thumb
+				we add an extra 20% to the current that will be on the 
+				wires going from the solar array to the charge controller.
+				This becomes the amount of current that your charge controller
+				will need to be able to handle as input and is a value to consider
+				when shopping for your solar panel. The value for this has been
+				calculated at the bottom of the above calculator.
+				</p>
+				
+				<h3>The end result for step 3</h3>
+				<p>
+				You now know which solar panels you'll need, how many and how you'll
+				configure them (series/parallel). In figuring that out you've probably
+				already figured out what size wire you'll need between your solar array
+				and the charge controller. Click on an
+				icon at the top or bottom of this page to go to another step.
+				</p>				
 				
 				
 				

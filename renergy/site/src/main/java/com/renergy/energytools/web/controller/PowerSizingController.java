@@ -74,7 +74,7 @@ public class PowerSizingController {
         redirectAttributes.addFlashAttribute("loadSummary", loadSummary);
         log.debug("Load Summary after save/calculate : " +loadSummary);
         //model.clear();
-        return "redirect:/tools/batteryCalculator";
+        return "redirect:/tools/batteryCalculator/step2";
     }    
     
     

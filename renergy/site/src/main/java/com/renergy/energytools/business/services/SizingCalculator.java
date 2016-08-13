@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.renergy.energytools.business.entities.Battery;
 import com.renergy.energytools.business.entities.LoadRow;
-import com.renergy.energytools.business.entities.PVPanel;
+import com.renergy.energytools.business.entities.Panel;
 import com.renergy.energytools.business.entities.SeedStarter;
 
 @Service
@@ -58,11 +58,11 @@ public class SizingCalculator {
       	return battery;    	
     }
     
-    public PVPanel getPVPanelSizing(SeedStarter seedStarter,Battery battery ){
-    	PVPanel pvPanel = new PVPanel();
+    public Panel getPVPanelSizing(SeedStarter seedStarter,Battery battery ){
+    	Panel pvPanel = new Panel();
     	double dailyAHTakenFromBattery = battery.getBatteryBankNeeded();
     	double ahToBeSuppliedByPV = dailyAHTakenFromBattery/(battery.getEfficiency()/100);
-    	double pvArrayPeakAmps = ahToBeSuppliedByPV/pvPanel.getPeakSunAvailability();
+    	double pvArrayPeakAmps = ahToBeSuppliedByPV/pvPanel.getSunshineHoursPerDay();
     	pvPanel.setPannelInParellel(pvArrayPeakAmps/3);
     	pvPanel.setPannelInSeries(seedStarter.getBattery().getDcVoltage().showVolts()/12);
     	pvPanel.setTotalPannels(pvPanel.getPannelInSeries()*pvPanel.getPannelInSeries());
@@ -74,7 +74,7 @@ public class SizingCalculator {
     
     public SeedStarter resetSeedStarted(SeedStarter seedStarter){
     	Battery battery = new Battery();
-    	PVPanel pvPanel = new PVPanel();
+    	Panel pvPanel = new Panel();
     	double loadForUser = 0.0;
     	seedStarter.setLoadForUser(loadForUser);
     	seedStarter.setBattery(battery);

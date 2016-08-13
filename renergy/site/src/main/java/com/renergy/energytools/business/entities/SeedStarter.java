@@ -25,7 +25,7 @@ public class SeedStarter {
     private int daysOfAutonomy=2;//in days
     private Battery battery=new Battery();
     private Inverter inverter=new Inverter();
-    private PVPanel pvPanel= new PVPanel();
+    private Panel pvPanel= new Panel();
     private PVController pvController = new PVController();
     private double inverterEfficiency=90; //in %
     
@@ -144,12 +144,12 @@ public class SeedStarter {
 	}
 
 
-	public PVPanel getPvPanel() {
+	public Panel getPvPanel() {
 		return pvPanel;
 	}
 
 
-	public void setPvPanel(PVPanel pvPanel) {
+	public void setPvPanel(Panel pvPanel) {
 		this.pvPanel = pvPanel;
 	}
 
